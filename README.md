@@ -1,39 +1,38 @@
-# Ko-Fi Engine
-Ko-Fi Engine is a 3D game engine based on SDL and OpenGL, developed by Álex Ávila and Bosco Barber for the "Game Engines" subject in the Bachelor's degree in Video Game Design and Development at the CITM-UPC center, Barcelona.
+# HoneyEngine
 
-# Assignment 2
+A simple 3D game engine.
 
-## Overview
-For our second assignment the goal is to remove our dependency from FBX for running our games,
-organize resources coherently and apply the minimal optimizations of a graphics engine (frustum culling).
+![logo](https://github.com/paulahitz8/Engine/blob/main/Engine/Game/Assets/Resources/Logo/honeyengine_logo.png?raw=true)
 
-## Content
-- A scene with some houses, a floor and a camera is automatically loaded at the start.
-- The user is able to use the inspector to modify a GameObject:
-    - Hierarchy: delete, reparent, create empty and create children.
-    - Transform: translate, rotate and scale Game Objects.
-    - Mesh: select or drop any imported mesh.
-    - Texture: select or drop any imported texture.
-    - Camera is a component with settings that can be modified.
-- GameObjects can be picked from the world using the mouse.
-- All meshes use a bounding volume (AABB) and can be discarded using Frustum Culling. This process is visualized in the editor (debug raycast and boxes).
-- Models, meshes and textures are saved to our own format (.sugar) under “Library” folder.
-- Scene can be serialized to a file that can be loaded.
-- The user can Start / Pause / Stop the simulation and recover its original state.
-- Resource Management:
-    - There is an “Assets” window that shows all user assets.
-        - *as a simple tree viewer
-    - The user can drop/import new files. Assets window reacts properly.
-    - Asset files can be deleted through the window and /Library entries are removed.
-    - Upon start, all resources not managed inside Assets are generated in Library.
-        - */Library folder is regenerated from /Assets + meta content
-    - All resources use reference counting (e.g. a texture / mesh is only once in memory regardless of how many gameobject use it). This process is visualized in the editor.
+## Description
 
-## Controls
-- WASDQE = Move around the 3D space
-- Shift + Move: Speed increase
-- Right click: Camera Rotation
-- Alt + Left click: Rotate around the object selected
-- Mouse Wheel: Zoom
-- F: Focus Object
-- ESC: Exit engine
+HoneyEngine is a game engine created for our class "Game Engines" in our Video Game Design and Development Degree in CITM (UPC).
+It is a simple 3D geometry viewer that supports different features like loading fbx models, adding textures, and managing these game objects.
+
+Thank you to Alex Ávila and Bosco Barber for letting us use their Ko-Fi Engine as a base for the last delivery. :) 
+## Developers
+
+- Paula Hitz (https://github.com/paulahitz8)
+- Irene Hernández (https://github.com/ihedud)
+- María Calle (https:://github.com/mav006)
+
+## Features
+
+- Drag and drop of models (fbx) and textures (png or jpg)
+- Game objects with mesh, texture and transform components
+- ImGui UI: console, configuration, hierarchy, inspector, about, and demo windows
+- Unity-like camera controls
+- Save and load
+
+## Controls 
+
+- WASD to move camera
+- Mouse wheel to zoom in and out
+- Alt+Left click to orbit around game object
+- F to focus in game object
+- SHIFT to increase camera speed
+- ESC to quit
+
+## License
+
+This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
