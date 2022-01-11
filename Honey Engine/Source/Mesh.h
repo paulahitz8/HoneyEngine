@@ -49,14 +49,14 @@ public:
 	uint id_tex_coord = 0;
 	float* tex_coords = nullptr;
 
-	unsigned int VAO;
+	//unsigned int VAO;
 
 	// Texture
 	Texture texture;
 
 	// AABB
 	AABB localAABB;
-	
+
 private:
 	void SetUpDefaultTexture();
 	// Debug functions for drawing

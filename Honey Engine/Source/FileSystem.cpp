@@ -9,7 +9,7 @@
 #include <filesystem>
 #include <iomanip>
 
-FileSystem::FileSystem(KoFiEngine* engine)
+FileSystem::FileSystem(HoneyEngine* engine)
 {
 	name = "ModelLoader";
 	std::string rootPathString = SDL_GetBasePath();

@@ -20,7 +20,7 @@
 
 #define MAX_KEYS 300
 
-Input::Input(KoFiEngine* engine) : Module()
+Input::Input(HoneyEngine* engine) : Module()
 {
 	name = "Input";
 

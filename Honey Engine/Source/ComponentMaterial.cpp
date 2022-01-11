@@ -7,18 +7,18 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 #include "PanelChooser.h"
-#include "Shader.h"
+//#include "Shader.h"
 
 ComponentMaterial::ComponentMaterial(GameObject* parent) : Component(parent)
 {
 	type = ComponentType::MATERIAL;
-	LoadShader();
+	//LoadShader();
 	path = "";
 }
 
 ComponentMaterial::~ComponentMaterial()
 {
-	glDeleteProgram(this->materialShader);
+	//glDeleteProgram(this->materialShader);
 
 }
 
@@ -50,28 +50,28 @@ void ComponentMaterial::LoadTextureFromId(uint& textureID, const char* path)
 void ComponentMaterial::LoadTexture(const char* path)
 {
 
-		this->path = path;
+	this->path = path;
 
-		unsigned char* pixels = stbi_load(path, &texture.width, &texture.height, &texture.nrChannels, STBI_rgb);
-		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		glBindTexture(GL_TEXTURE_2D, texture.textureID);
-		// set the texture wrapping/filtering options (on the currently bound texture object)
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		if (pixels)
-		{
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texture.width, texture.height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-			glGenerateMipmap(GL_TEXTURE_2D);
-		}
-		else
-		{
-			appLog->AddLog("%s", "Texture Image not loaded correctly");
-		}
+	unsigned char* pixels = stbi_load(path, &texture.width, &texture.height, &texture.nrChannels, STBI_rgb);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glBindTexture(GL_TEXTURE_2D, texture.textureID);
+	// set the texture wrapping/filtering options (on the currently bound texture object)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	if (pixels)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texture.width, texture.height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		appLog->AddLog("%s", "Texture Image not loaded correctly");
+	}
 
-		stbi_image_free(pixels);
-	
+	stbi_image_free(pixels);
+
 }
 
 void ComponentMaterial::LoadDefaultTexture(uint& textureID)
@@ -108,9 +108,9 @@ bool ComponentMaterial::InspectorDraw(PanelChooser* panelChooser)
 			if (panelChooser->OnChooserClosed() != nullptr) {
 				path = panelChooser->OnChooserClosed();
 				path.erase(path.begin());
-				
-					LoadTextureFromId(texture.textureID, path.c_str());
-				
+
+				LoadTextureFromId(texture.textureID, path.c_str());
+
 			}
 		}
 		if (path.c_str() != nullptr && path.c_str() != "")
@@ -120,7 +120,7 @@ bool ComponentMaterial::InspectorDraw(PanelChooser* panelChooser)
 			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1, 1, 0, 1));
 			if (ImGui::Selectable(path.c_str()))
 			{
-				panelChooser->OpenPanel("MaterialComponent","png");
+				panelChooser->OpenPanel("MaterialComponent", "png");
 			}
 			ImGui::PopStyleColor();
 			ImGui::Text("Texture width: ");
@@ -132,12 +132,12 @@ bool ComponentMaterial::InspectorDraw(PanelChooser* panelChooser)
 			ImGui::Image((ImTextureID)texture.textureID, ImVec2(85, 85));
 		}
 		if (ImGui::Button("Add Texture")) {
-			panelChooser->OpenPanel("MaterialComponent","png");
+			panelChooser->OpenPanel("MaterialComponent", "png");
 		}
 		if (ImGui::Button("Checkers Texture")) {
-			
-				LoadDefaultTexture(texture.textureID);
-			
+
+			LoadDefaultTexture(texture.textureID);
+
 		}
 	}
 	return true;
@@ -168,13 +168,13 @@ Texture ComponentMaterial::GetTexture()
 	return texture;
 }
 
-uint ComponentMaterial::GetShader()
-{
-	return materialShader;
-}
-
-void ComponentMaterial::LoadShader()
-{
-	shader::ShaderProgramSource shaderSource = shader::ParseShader("Assets/Shaders/default_shader.glsl");
-	materialShader = shader::CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
-}
+//uint ComponentMaterial::GetShader()
+//{
+//	return materialShader;
+//}
+//
+//void ComponentMaterial::LoadShader()
+//{
+//	shader::ShaderProgramSource shaderSource = shader::ParseShader("Assets/Shaders/default_shader.glsl");
+//	materialShader = shader::CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
+//}

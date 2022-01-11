@@ -17,7 +17,7 @@
 #pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 
-Renderer3D::Renderer3D(KoFiEngine* engine) : Module()
+Renderer3D::Renderer3D(HoneyEngine* engine) : Module()
 {
 	name = "Renderer3D";
 
@@ -194,9 +194,9 @@ void Renderer3D::SetVsync(bool vsync)
 		this->vsync = vsync;
 		if (SDL_GL_SetSwapInterval(vsync ? 1 : 0) < 0) {
 			CONSOLE_LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-			appLog->AddLog("Warning: Unable to set VSync! SDL Error: %s\n",SDL_GetError());
+			appLog->AddLog("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
 		}
-		
+
 		SDL_GL_GetSwapInterval() ? appLog->AddLog("Vsync Started\n") : appLog->AddLog("Vsync Stopped\n");;
 	}
 }

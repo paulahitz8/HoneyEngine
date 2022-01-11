@@ -15,7 +15,7 @@ struct PhysMotor3D;
 class SceneIntro : public Scene
 {
 public:
-	SceneIntro(KoFiEngine* engine);
+	SceneIntro(HoneyEngine* engine);
 	~SceneIntro();
 
 	bool Start();

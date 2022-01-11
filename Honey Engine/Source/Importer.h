@@ -15,7 +15,7 @@ public:
 	bool SaveModel(const Mesh* mesh,const char* path);
 	Mesh* LoadModel(const char* path);
 	
-	void SetEngine(KoFiEngine* engine) { this->engine = engine; }
+	void SetEngine(HoneyEngine* engine) { this->engine = engine; }
 	
 private:
 	GameObject* GetOneMesh(const aiScene* scene);
@@ -23,6 +23,6 @@ private:
 
 	ComponentTransform* AdjustTransform(const aiScene* scene, GameObject* go);
 private:
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 	static Importer* instance;
 };

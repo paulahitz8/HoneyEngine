@@ -4,12 +4,12 @@
 
 #include <string>
 
-class KoFiEngine;
+class HoneyEngine;
 
 class ViewportFrameBuffer : public Module
 {
 public:
-	ViewportFrameBuffer(KoFiEngine* engine/*, bool start_enabled = true*/);
+	ViewportFrameBuffer(HoneyEngine* engine/*, bool start_enabled = true*/);
 	~ViewportFrameBuffer();
 
 	bool Start();
@@ -23,5 +23,5 @@ public:
 	uint texture = 0;
 	bool show_viewport_window = true;
 
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 };

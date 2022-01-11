@@ -11,7 +11,7 @@ class GameObject;
 class Camera3D : public Module
 {
 public:
-	Camera3D(KoFiEngine* engine);
+	Camera3D(HoneyEngine* engine);
 	~Camera3D();
 
 	bool Start();
@@ -40,5 +40,5 @@ public:
 private:
 	float lastDeltaX = 0.f, lastDeltaY = 0.f;
 
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 };

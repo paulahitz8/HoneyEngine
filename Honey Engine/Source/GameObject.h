@@ -4,7 +4,7 @@
 
 #include "Component.h"
 
-class KoFiEngine;
+class HoneyEngine;
 class ComponentTransform;
 class ComponentMesh;
 class ComponentInfo;
@@ -12,7 +12,7 @@ class ComponentInfo;
 class GameObject
 {
 public:
-	GameObject(int id, KoFiEngine* engine, const char* name = nullptr);
+	GameObject(int id, HoneyEngine* engine, const char* name = nullptr);
 	//GameObject(const char* path, int id, const char* name = nullptr);
 	~GameObject();
 
@@ -59,7 +59,7 @@ public:
 	void SetId(int id);
 	uint GetId() const;
 	bool HasChildrenWithId(int id);
-	KoFiEngine* GetEngine();
+	HoneyEngine* GetEngine();
 
 public:
 	std::string name;
@@ -71,6 +71,6 @@ private:
 	GameObject* parent = nullptr;
 	int id;
 	
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 	ComponentTransform* transform = nullptr;
 };

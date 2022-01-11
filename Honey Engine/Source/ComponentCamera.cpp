@@ -66,7 +66,7 @@ bool ComponentCamera::Update()
 	//right = componentTransform->Right();
 
 	CalculateViewMatrix();
-	
+
 	if (drawFrustum)
 		DrawFrustum();
 	if (frustumCulling)
@@ -111,7 +111,7 @@ void ComponentCamera::RecalculateProjection()
 bool ComponentCamera::InspectorDraw(PanelChooser* chooser)
 {
 	bool ret = true; // TODO: We don't need it to return a bool... Make it void when possible.
-	
+
 	if (ImGui::CollapsingHeader("Editor Camera"))
 	{
 		if (ImGui::DragFloat("Vertical fov", &verticalFOV))
@@ -243,7 +243,7 @@ void ComponentCamera::FrustumCulling()
 	{
 		GameObject* gameObject = (*go);
 		ComponentMesh* componentMesh = gameObject->GetComponent<ComponentMesh>();
-		
+
 		if (componentMesh == nullptr || gameObject == owner)
 			continue;
 

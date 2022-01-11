@@ -9,7 +9,7 @@
 #include "ComponentInfo.h"
 
 // Used with a path for the .fbx load
-GameObject::GameObject(int id, KoFiEngine* engine, const char* name)
+GameObject::GameObject(int id, HoneyEngine* engine, const char* name)
 {
 	active = true;
 	//LoadModel(path);
@@ -195,7 +195,7 @@ bool GameObject::HasChildrenWithId(int id)
 	return false;
 }
 
-KoFiEngine* GameObject::GetEngine()
+HoneyEngine* GameObject::GetEngine()
 {
 	return engine;
 }

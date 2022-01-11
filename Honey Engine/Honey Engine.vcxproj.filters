@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\Shader.cpp" />
     <ClCompile Include="Source\Component.cpp">
       <Filter>Source\GameObject\Components</Filter>
     </ClCompile>
@@ -242,7 +241,6 @@
   <ItemGroup>
     <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\Globals.h" />
-    <ClInclude Include="Source\Shader.h" />
     <ClInclude Include="Source\Component.h">
       <Filter>Source\GameObject\Components</Filter>
     </ClInclude>

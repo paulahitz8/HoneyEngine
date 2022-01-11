@@ -18,7 +18,7 @@ enum KEY_STATE
 class Input : public Module
 {
 public:
-	Input(KoFiEngine* engine);
+	Input(HoneyEngine* engine);
 	~Input();
 
 	bool Init();
@@ -71,5 +71,5 @@ private:
 	//int mouse_z_motion;
 	//Renderer3D* renderer = nullptr;
 	char* dropped_filedir;
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 };

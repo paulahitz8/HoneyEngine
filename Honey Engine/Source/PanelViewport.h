@@ -2,12 +2,12 @@
 #include "Panel.h"
 
 class Editor;
-class KoFiEngine;
+class HoneyEngine;
 
 class PanelViewport : public Panel
 {
 public:
-	PanelViewport(Editor* editor, KoFiEngine* engine);
+	PanelViewport(Editor* editor, HoneyEngine* engine);
 	~PanelViewport();
 
 	bool Awake();
@@ -17,5 +17,5 @@ public:
 
 private:
 	Editor* editor = nullptr;
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 };

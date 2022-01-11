@@ -7,7 +7,7 @@
 
 class GuiControl;
 enum class GuiControlState;
-class KoFiEngine;
+class HoneyEngine;
 
 class Module
 {

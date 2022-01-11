@@ -146,7 +146,7 @@ public:
 	SString name;
 	bool active;
 
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 	std::vector<GameObject*> gameObjectList;
 	GameObject* rootGo = nullptr;
 	GameObject* currentCamera = nullptr;

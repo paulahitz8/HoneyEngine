@@ -5,7 +5,7 @@
 #include "SceneManager.h"
 #include "Input.h"
 
-PanelRuntimeState::PanelRuntimeState(Editor* editor, KoFiEngine* engine)
+PanelRuntimeState::PanelRuntimeState(Editor* editor, HoneyEngine* engine)
 {
     panelName = "RuntimeState";
 	this->editor = editor;

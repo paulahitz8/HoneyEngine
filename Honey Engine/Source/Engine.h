@@ -17,14 +17,14 @@ class Editor;
 class FileSystem;
 class ViewportFrameBuffer;
 
-class KoFiEngine
+class HoneyEngine
 {
 public:
 	// Constructor
-	KoFiEngine(int argc, char* args[]);
+	HoneyEngine(int argc, char* args[]);
 
 	// Destructor
-	virtual ~KoFiEngine();
+	virtual ~HoneyEngine();
 
 	// Called before render is available
 	bool Awake();

@@ -14,7 +14,7 @@ class GameObject;
 class Renderer3D : public Module
 {
 public:
-	Renderer3D(KoFiEngine* engine);
+	Renderer3D(HoneyEngine* engine);
 	~Renderer3D();
 
 	bool Awake(Json configModule);
@@ -38,7 +38,7 @@ public:
 
 private:
 	bool vsync = false;
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 
 	// Debug ray for mouse picking
 	LineSegment ray;

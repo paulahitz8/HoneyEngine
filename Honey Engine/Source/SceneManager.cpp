@@ -16,7 +16,7 @@
 #include "MathGeoLib/Math/float4x4.h"
 #include "MathGeoLib/Math/Quat.h"
 
-SceneManager::SceneManager(KoFiEngine* engine)
+SceneManager::SceneManager(HoneyEngine* engine)
 {
 	name = "SceneManager";
 	this->engine = engine;

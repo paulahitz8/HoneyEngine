@@ -21,7 +21,7 @@
 
 #include "ComponentMaterial.h" // Temporal for the assignment, just to display the texture on the model when the program begins...
 
-SceneIntro::SceneIntro(KoFiEngine* engine) : Scene()
+SceneIntro::SceneIntro(HoneyEngine* engine) : Scene()
 {
 	name = "SceneIntro";
 	// Needed modules

@@ -24,7 +24,7 @@
 
 void LoadFonts(float fontSize_ = 12.0f);
 
-Editor::Editor(KoFiEngine* engine)
+Editor::Editor(HoneyEngine* engine)
 {
 	this->engine = engine;
 	name = "Editor";

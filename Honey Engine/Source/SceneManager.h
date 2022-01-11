@@ -8,7 +8,7 @@
 #include <string>
 #include <list>
 
-class KoFiEngine;
+class HoneyEngine;
 class SceneIntro;
 class GameObject;
 class JasonHandler;
@@ -29,7 +29,7 @@ enum class RuntimeState
 class SceneManager : public Module
 {
 public:
-	SceneManager(KoFiEngine* engine);
+	SceneManager(HoneyEngine* engine);
 	~SceneManager();
 
 	// Called before render is available
@@ -81,7 +81,7 @@ public:
 
 private:
 	// Modules
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 
 	// Scenes
 	std::vector<Scene*> scenes;

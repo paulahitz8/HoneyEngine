@@ -38,7 +38,7 @@ struct PanelsState
 class Editor : public Module
 {
 public:
-	Editor(KoFiEngine* engine);
+	Editor(HoneyEngine* engine);
 	~Editor();
 
 	bool Awake(Json configModule);
@@ -65,7 +65,7 @@ public:
 	bool toggleChooserPanel = false;
 	bool buttonPressed = false;
 	PanelGameObjectInfo panelGameObjectInfo = {};
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 
 private:
 	// Style

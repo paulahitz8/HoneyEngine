@@ -6,7 +6,7 @@
 
 #include "SDL.h"
 
-Window::Window(KoFiEngine* engine) : Module()
+Window::Window(HoneyEngine* engine) : Module()
 {
 	window = NULL;
 	screenSurface = NULL;

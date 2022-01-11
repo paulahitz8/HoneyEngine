@@ -8,7 +8,7 @@
 #include "glew.h"
 #include <gl/GL.h>
 
-ViewportFrameBuffer::ViewportFrameBuffer(KoFiEngine* engine/*, bool start_enabled*/) : Module(/*engine, start_enabled*/)
+ViewportFrameBuffer::ViewportFrameBuffer(HoneyEngine* engine/*, bool start_enabled*/) : Module(/*engine, start_enabled*/)
 {
 	show_viewport_window = true;
 

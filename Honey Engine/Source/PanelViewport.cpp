@@ -13,7 +13,7 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_internal.h"
 
-PanelViewport::PanelViewport(Editor* editor, KoFiEngine* engine)
+PanelViewport::PanelViewport(Editor* editor, HoneyEngine* engine)
 {
 	this->editor = editor;
     this->engine = engine;

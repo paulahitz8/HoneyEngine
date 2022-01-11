@@ -1,8 +1,8 @@
 #pragma once
-class KoFiEngine;
+class HoneyEngine;
 class Textures {
 public:
-	Textures(KoFiEngine* engine);
+	Textures(HoneyEngine* engine);
 	~Textures();
 private:
 };

@@ -10,7 +10,7 @@ class Window : public Module
 {
 public:
 
-	Window(KoFiEngine* engine);
+	Window(HoneyEngine* engine);
 
 	// Destructor
 	virtual ~Window();
@@ -68,7 +68,7 @@ private:
 	bool resizable = false;
 	std::string iconFile;
 
-	KoFiEngine* engine = nullptr;
+	HoneyEngine* engine = nullptr;
 };
 
 #endif // __WINDOW_H__

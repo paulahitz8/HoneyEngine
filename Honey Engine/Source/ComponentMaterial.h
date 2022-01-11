@@ -25,10 +25,10 @@ public:
 	std::string GetPath();
 	void SetTexture(Texture texture);
 	Texture GetTexture();
-	uint GetShader();
-	void LoadShader();
+	/*uint GetShader();
+	void LoadShader();*/
 private:
 	std::string path = "";
 	Texture texture;
-	uint materialShader = 0;
+	//uint materialShader = 0;
 };

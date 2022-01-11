@@ -14,7 +14,7 @@
 #include "ImGuiAppLog.h"
 #include "MathGeoLib/Geometry/LineSegment.h"
 
-Camera3D::Camera3D(KoFiEngine* engine) : Module()
+Camera3D::Camera3D(HoneyEngine* engine) : Module()
 {
 	name = "Camera";
 	this->engine = engine;
@@ -23,7 +23,7 @@ Camera3D::Camera3D(KoFiEngine* engine) : Module()
 	up = float3(0.0f, 1.0f, 0.0f);
 	front = float3(0.0f, 0.0f, 1.0f);
 
-	position = float3(0.0f,5.0f,-15.0f);
+	position = float3(0.0f, 5.0f, -15.0f);
 	reference = float3(0.0f, 0.0f, 0.0f);
 
 	CalculateViewMatrix();

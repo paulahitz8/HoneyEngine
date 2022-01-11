@@ -19,7 +19,7 @@
 #include "glew.h"
 
 // Constructor
-KoFiEngine::KoFiEngine(int argc, char* args[]) : argc(argc), args(args)
+HoneyEngine::HoneyEngine(int argc, char* args[]) : argc(argc), args(args)
 {
 	engineConfig = new EngineConfig();
 	PERF_START(ptimer);
@@ -50,7 +50,7 @@ KoFiEngine::KoFiEngine(int argc, char* args[]) : argc(argc), args(args)
 }
 
 // Destructor
-KoFiEngine::~KoFiEngine()
+HoneyEngine::~HoneyEngine()
 {
 	// Release modules
 	for (std::list<Module*>::reverse_iterator item = modules.rbegin(); item != modules.rend(); ++item)
@@ -61,14 +61,14 @@ KoFiEngine::~KoFiEngine()
 	modules.clear();
 }
 
-void KoFiEngine::AddModule(Module* module)
+void HoneyEngine::AddModule(Module* module)
 {
 	module->Init();
 	modules.push_back(module);
 }
 
 // Called before render is available
-bool KoFiEngine::Awake()
+bool HoneyEngine::Awake()
 {
 	PERF_START(ptimer);
 
@@ -114,7 +114,7 @@ bool KoFiEngine::Awake()
 }
 
 // Called before the first frame
-bool KoFiEngine::Start()
+bool HoneyEngine::Start()
 {
 	PERF_START(ptimer);
 
@@ -137,7 +137,7 @@ bool KoFiEngine::Start()
 }
 
 // Called each loop iteration
-bool KoFiEngine::Update()
+bool HoneyEngine::Update()
 {
 	bool ret = true;
 	PrepareUpdate();
@@ -159,7 +159,7 @@ bool KoFiEngine::Update()
 }
 
 // ---------------------------------------------
-void KoFiEngine::PrepareUpdate()
+void HoneyEngine::PrepareUpdate()
 {
 	engineConfig->frameCount++;
 	engineConfig->lastSecFrameCount++;
@@ -170,7 +170,7 @@ void KoFiEngine::PrepareUpdate()
 }
 
 // ---------------------------------------------
-void KoFiEngine::FinishUpdate()
+void HoneyEngine::FinishUpdate()
 {
 	if (engineConfig->lastSecFrameTime.Read() > 1000)
 	{
@@ -210,7 +210,7 @@ void KoFiEngine::FinishUpdate()
 }
 
 // Call modules before each loop iteration
-bool KoFiEngine::PreUpdate()
+bool HoneyEngine::PreUpdate()
 {
 	bool ret = true;
 
@@ -232,7 +232,7 @@ bool KoFiEngine::PreUpdate()
 }
 
 // Call modules on each loop iteration
-bool KoFiEngine::DoUpdate()
+bool HoneyEngine::DoUpdate()
 {
 	bool ret = true;
 	std::list<Module*>::iterator item = modules.begin();
@@ -255,7 +255,7 @@ bool KoFiEngine::DoUpdate()
 }
 
 // Call modules after each loop iteration
-bool KoFiEngine::PostUpdate()
+bool HoneyEngine::PostUpdate()
 {
 	bool ret = true;
 	std::list<Module*>::iterator item;
@@ -276,7 +276,7 @@ bool KoFiEngine::PostUpdate()
 }
 
 // Called before quitting
-bool KoFiEngine::CleanUp()
+bool HoneyEngine::CleanUp()
 {
 	bool ret = true;
 
@@ -289,13 +289,13 @@ bool KoFiEngine::CleanUp()
 }
 
 // ---------------------------------------
-int KoFiEngine::GetArgc() const
+int HoneyEngine::GetArgc() const
 {
 	return argc;
 }
 
 // ---------------------------------------
-const char* KoFiEngine::GetArgv(int index) const
+const char* HoneyEngine::GetArgv(int index) const
 {
 	if (index < argc)
 		return args[index];
@@ -304,23 +304,23 @@ const char* KoFiEngine::GetArgv(int index) const
 }
 
 // ---------------------------------------
-const char* KoFiEngine::GetTitle() const
+const char* HoneyEngine::GetTitle() const
 {
 	return engineConfig->title.c_str();
 }
 
 // ---------------------------------------
-const char* KoFiEngine::GetOrganization() const
+const char* HoneyEngine::GetOrganization() const
 {
 	return engineConfig->organization.c_str();
 }
 
-const uint64 KoFiEngine::GetFps() const
+const uint64 HoneyEngine::GetFps() const
 {
 	return engineConfig->frameCount;
 }
 
-void KoFiEngine::SetHardwareInfo() {
+void HoneyEngine::SetHardwareInfo() {
 	SDL_GetVersion(&engineConfig->sdlVersion);
 	engineConfig->cpuCores = SDL_GetCPUCount();
 	engineConfig->RAM = (float)(SDL_GetSystemRAM()*1024);
@@ -341,7 +341,7 @@ void KoFiEngine::SetHardwareInfo() {
 	engineConfig->hasSSE42 = SDL_HasSSE42() ? true : false;
 }
 
-void KoFiEngine::SetVramStats()
+void HoneyEngine::SetVramStats()
 {
 	GLint nTotalMemoryInKb = 0;
 	int temp;
@@ -358,47 +358,47 @@ void KoFiEngine::SetVramStats()
 	//TODO: GET RESERVED VRAM
 }
 
-EngineConfig* KoFiEngine::GetEngineConfig()
+EngineConfig* HoneyEngine::GetEngineConfig()
 {
 	return this->engineConfig;
 }
 
-Window* KoFiEngine::GetWindow() const
+Window* HoneyEngine::GetWindow() const
 {
 	return this->window;
 }
 
-Input* KoFiEngine::GetInput()const
+Input* HoneyEngine::GetInput()const
 {
 	return this->input;
 }
 
-SceneManager* KoFiEngine::GetSceneManager()const
+SceneManager* HoneyEngine::GetSceneManager()const
 {
 	return this->sceneManager;
 }
 
-Renderer3D* KoFiEngine::GetRenderer()const
+Renderer3D* HoneyEngine::GetRenderer()const
 {
 	return this->renderer;
 }
 
-Camera3D* KoFiEngine::GetCamera3D()const
+Camera3D* HoneyEngine::GetCamera3D()const
 {
 	return this->camera;
 }
 
-Editor* KoFiEngine::GetEditor()const
+Editor* HoneyEngine::GetEditor()const
 {
 	return this->editor;
 }
 
-FileSystem* KoFiEngine::GetFileSystem()const
+FileSystem* HoneyEngine::GetFileSystem()const
 {
 	return this->fileSystem;
 }
 
-ViewportFrameBuffer* KoFiEngine::GetViewportFrameBuffer()const
+ViewportFrameBuffer* HoneyEngine::GetViewportFrameBuffer()const
 {
 	return this->viewportBuffer;
 }

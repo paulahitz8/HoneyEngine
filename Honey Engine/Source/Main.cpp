@@ -22,7 +22,7 @@ ExampleAppLog* appLog = nullptr;
 
 int main(int argc, char* args[])
 {
-	KoFiEngine* engine = NULL;
+	HoneyEngine* engine = NULL;
 	appLog = new ExampleAppLog();
 	CONSOLE_LOG("Engine starting ...");
 	appLog->AddLog("Engine starting ...\n");
@@ -38,7 +38,7 @@ int main(int argc, char* args[])
 		case CREATE:
 			CONSOLE_LOG("CREATION PHASE ===============================");
 			appLog->AddLog("CREATION PHASE ===============================\n");
-			engine = new KoFiEngine(argc, args);
+			engine = new HoneyEngine(argc, args);
 			if (engine != NULL)
 				state = AWAKE;
 			else
