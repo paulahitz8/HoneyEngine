@@ -20,7 +20,6 @@
 #include "SceneManager.h"
 
 #include "ComponentMaterial.h" // Temporal for the assignment, just to display the texture on the model when the program begins...
-#include "HoneyEngineScripts.h"
 
 SceneIntro::SceneIntro(KoFiEngine* engine) : Scene()
 {
@@ -44,19 +43,6 @@ bool SceneIntro::Start()
 	CONSOLE_LOG("Loading Intro assets");
 	appLog->AddLog("Loading Intro assets\n");
 	bool ret = true;
-
-	// Initialize a Fibonacci relation sequence.
-	fibonacci_init(1, 1);
-	// Write out the sequence values until overflow.
-	do {
-		appLog->AddLog("%d", fibonacci_index());
-		std::cout << fibonacci_index() << ": "
-			<< fibonacci_current() << std::endl;
-	} while (fibonacci_next());
-	// Report count of values written before overflow.
-	std::cout << fibonacci_index() + 1 <<
-		" Fibonacci sequence values fit in an " <<
-		"unsigned 64-bit integer." << std::endl;
 
 
 	// Load initial scene (temporal)
