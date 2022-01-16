@@ -11,6 +11,8 @@
 class GameObject;
 struct PhysBody3D;
 struct PhysMotor3D;
+class Lua;
+class LuaWork;
 
 class SceneIntro : public Scene
 {
@@ -33,8 +35,7 @@ private:
 
 	// Temporal to manage the use of the camera
 	GameObject* camera = nullptr;
-
-
+	Lua* lua = nullptr;
 
 };
 

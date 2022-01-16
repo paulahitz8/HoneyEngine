@@ -64,11 +64,11 @@ bool Camera3D::Update(float dt)
 	float speed = cameraSpeed * dt;
 	if (engine->GetInput()->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT) speed *= 4.f;
 
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
 
 	// Focus --> NEEDS TO BE FIXED... SOME (MESH) FUNCTIONS DEPEND ON A PRIMITIVE LIBRARY WE STILL DON'T HAVE IMPLEMENTED.
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
 	{
 		// TO DO: Manage current object selection by the game object itself! Not by its index...
 		if (/*engine->GetEditor()->gameobjectSelected != nullptr <-- Should be this way*/
@@ -102,16 +102,16 @@ bool Camera3D::Update(float dt)
 		spot.y = (engine->GetSceneManager()->GetCurrentScene()->GetGameObject(engine->GetEditor()->panelGameObjectInfo.selectedGameObjectID)->GetTransform())->GetPosition().y;
 		spot.z = (engine->GetSceneManager()->GetCurrentScene()->GetGameObject(engine->GetEditor()->panelGameObjectInfo.selectedGameObjectID)->GetTransform())->GetPosition().z;
 	}
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
 	{
 		LookAt(float3(5, 5, 5));
 	}
 
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos += front * speed;
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos -= front * speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos += front * speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos -= front * speed;
 
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos += right * speed;
-	if (engine->GetInput()->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos -= right * speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos += right * speed;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos -= right * speed;
 
 	if (engine->GetInput()->GetMouseZ() > 0) newPos += front * speed * 2;
 	if (engine->GetInput()->GetMouseZ() < 0) newPos -= front * speed * 2;

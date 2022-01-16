@@ -162,6 +162,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\PanelTextEditor.cpp" />
+    <ClCompile Include="Source\Lua.cpp" />
     <ClCompile Include="Source\Camera3D.cpp" />
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\Component.cpp" />
@@ -242,8 +244,11 @@
     <ClCompile Include="Source\SceneIntro.cpp" />
     <ClCompile Include="Source\ComponentMesh.cpp" />
     <ClCompile Include="Source\Window.cpp" />
+    <ClCompile Include="Source\TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\PanelTextEditor.h" />
+    <ClInclude Include="Source\Lua.h" />
     <ClInclude Include="Source\Camera3D.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\Component.h" />
@@ -367,6 +372,7 @@
     <ClInclude Include="Source\SString.h" />
     <ClInclude Include="Source\Timer.h" />
     <ClInclude Include="Source\Window.h" />
+    <ClInclude Include="Source\TextEditor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

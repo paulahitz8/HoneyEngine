@@ -8,6 +8,8 @@
 #include "ComponentMesh.h"
 #include "ComponentInfo.h"
 
+#include <iostream>
+
 // Used with a path for the .fbx load
 GameObject::GameObject(int id, HoneyEngine* engine, const char* name)
 {
@@ -199,3 +201,32 @@ HoneyEngine* GameObject::GetEngine()
 {
 	return engine;
 }
+
+//int GameObject::Test(lua_State* L)
+//{
+//	GameObject instance = this;
+//	std::cout << "Test function is being called" << std::endl;
+//	try
+//	{
+//		if (lua_isstring(L, 1))
+//		{
+//			std::string goName = lua_tostring(L, 1);
+//			if (name.compare(goName))
+//			{
+//				if (GetTransform() != nullptr)
+//				{
+//					int c = GetTransform()->GetPosition().x;
+//					//return (*item)->GetTransform();
+//					lua_pushnumber(L, c);
+//					return 1;
+//				}
+//			}
+//		}
+//	}
+//	catch (...)
+//	{
+//		/*CONSOLE_LOG("Couldn't find any gameObject with this name\n");
+//		appLog->AddLog("Couldn't find any gameObject with this name\n");*/
+//	}
+//	return 1;
+//}

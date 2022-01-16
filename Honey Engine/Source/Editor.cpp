@@ -21,6 +21,7 @@
 #include "PanelGame.h"
 #include "PanelRuntimeState.h"
 #include "PanelAssets.h"
+#include "PanelTextEditor.h"
 
 void LoadFonts(float fontSize_ = 12.0f);
 
@@ -50,6 +51,7 @@ Editor::Editor(HoneyEngine* engine)
 	panelChooser = new PanelChooser(this);
 	panelGameObject = new PanelInspector(this);
 	panelAssets = new PanelAssets(this);
+	panelTextEditor = new PanelTextEditor(this);
 
 	// Panel instances with its own bool
 	if (panelsState.showGameWindow)
@@ -76,6 +78,7 @@ Editor::Editor(HoneyEngine* engine)
 	AddPanel(panelChooser);
 	AddPanel(panelGameObject);
 	AddPanel(panelAssets);
+	AddPanel(panelTextEditor);
 }
 
 Editor::~Editor()
@@ -286,6 +289,7 @@ bool Editor::CleanUp()
 	RELEASE(panelViewport);
 	RELEASE(panelGame);
 	RELEASE(panelRuntimeState);
+	RELEASE(panelTextEditor);
 
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplSDL2_Shutdown();

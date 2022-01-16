@@ -28,6 +28,8 @@ enum class RuntimeState
 
 class SceneManager : public Module
 {
+	//friend class Lua;
+	//friend class LuaWorks;
 public:
 	SceneManager(HoneyEngine* engine);
 	~SceneManager();
@@ -78,6 +80,7 @@ public:
 
 public:
 	bool active;
+	Scene* currentScene = nullptr;
 
 private:
 	// Modules
@@ -85,7 +88,6 @@ private:
 
 	// Scenes
 	std::vector<Scene*> scenes;
-	Scene* currentScene = nullptr;
 	SceneIntro* sceneIntro = nullptr;
 
 	// TIME MANAGEMENT

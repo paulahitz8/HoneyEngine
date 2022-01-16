@@ -16,6 +16,7 @@
 #include "ComponentMaterial.h"
 #include "ComponentCamera.h"
 #include "GameObject.h"
+#include "Lua.h"
 //#include "Importer.h"
 #include "SceneManager.h"
 
@@ -30,6 +31,7 @@ SceneIntro::SceneIntro(HoneyEngine* engine) : Scene()
 	jsonHandler.LoadJson(j,"EngineConfig/window_test.json");
 	rootGo = new GameObject(-1, engine, "Root");
 	gameObjectList.push_back(rootGo);
+	
 }
 
 SceneIntro::~SceneIntro()
@@ -74,6 +76,18 @@ bool SceneIntro::PreUpdate(float dt)
 // Update
 bool SceneIntro::Update(float dt)
 {
+	lua = new Lua(engine);
+	if (lua->luaWork->isTest)
+	{
+		lua->luaWork->Test2();
+		lua->luaWork->isTest = false;
+	}
+	if (lua->luaWork->isMovingX || lua->luaWork->isMovingZ)
+	{
+		lua->luaWork->Moving();
+		if (lua->luaWork->isMovingX) lua->luaWork->isMovingX = false;
+		if (lua->luaWork->isMovingZ) lua->luaWork->isMovingZ = false;
+	}
 	for (GameObject* go : this->gameObjectList)
 	{
 		go->Update();
@@ -105,6 +119,7 @@ bool SceneIntro::CleanUp()
 		RELEASE(gameObject);
 	}
 
+	RELEASE(lua);
 
 	return true;
 }

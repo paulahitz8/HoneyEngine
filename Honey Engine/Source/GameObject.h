@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Component.h"
+#include "..\Honey\Lua\include\lua.hpp"
 
 class HoneyEngine;
 class ComponentTransform;
@@ -60,6 +61,10 @@ public:
 	uint GetId() const;
 	bool HasChildrenWithId(int id);
 	HoneyEngine* GetEngine();
+
+	// Lua
+	//static int Test(lua_State* L);
+	
 
 public:
 	std::string name;

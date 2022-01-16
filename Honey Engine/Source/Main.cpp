@@ -1,10 +1,9 @@
 #include <stdlib.h>
-
+#include <iostream>
 #include "Defs.h"
 #include "Log.h"
 
 #include "Engine.h"
-
 #include "ImGuiAppLog.h"
 
 enum MainState

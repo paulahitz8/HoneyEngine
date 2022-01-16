@@ -19,6 +19,7 @@ class PanelViewport;
 class PanelGame;
 class PanelRuntimeState;
 class PanelAssets;
+class PanelTextEditor;
 
 class GameObject;
 
@@ -63,6 +64,7 @@ public:
 	// Open/Close panel bools
 	bool toggleAboutPanel = false;
 	bool toggleChooserPanel = false;
+	bool toggleTextEditor = false;
 	bool buttonPressed = false;
 	PanelGameObjectInfo panelGameObjectInfo = {};
 	HoneyEngine* engine = nullptr;
@@ -85,6 +87,7 @@ private:
 	PanelViewport* panelViewport = nullptr;
 	PanelRuntimeState* panelRuntimeState = nullptr;
 	PanelAssets* panelAssets = nullptr;
+	PanelTextEditor* panelTextEditor = nullptr;
 };
 
 #endif IM_GUI_HANDLER_H

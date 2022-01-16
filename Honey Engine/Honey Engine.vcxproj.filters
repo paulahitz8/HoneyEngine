@@ -114,9 +114,6 @@
     <ClCompile Include="Source\External\imgui\imgui_widgets.cpp">
       <Filter>Libs\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Importer.cpp">
-      <Filter>Libs\imgui</Filter>
-    </ClCompile>
     <ClCompile Include="Source\External\mmgr\mmgr.cpp">
       <Filter>Libs\mmgr</Filter>
     </ClCompile>
@@ -236,6 +233,18 @@
     </ClCompile>
     <ClCompile Include="Source\Camera3D.cpp">
       <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Lua.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Importer.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PanelTextEditor.cpp">
+      <Filter>Source\Editor\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextEditor.cpp">
+      <Filter>Source\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -374,9 +383,6 @@
       <Filter>Libs\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Source\ImGuiAppLog.h">
-      <Filter>Libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Importer.h">
       <Filter>Libs\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Source\External\imgui\imstb_rectpack.h">
@@ -603,6 +609,18 @@
     </ClInclude>
     <ClInclude Include="Source\External\MathGeoLib\MathGeoLib\Math\MathAll.h">
       <Filter>Libs\MathGeoLib\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Lua.h">
+      <Filter>Source\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Importer.h">
+      <Filter>Source\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PanelTextEditor.h">
+      <Filter>Source\Editor\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextEditor.h">
+      <Filter>Source\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
