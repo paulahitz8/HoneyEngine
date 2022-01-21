@@ -12,9 +12,7 @@ PanelInspector::PanelInspector(Editor* editor)
 	panelName = "Inspector";
 }
 
-PanelInspector::~PanelInspector()
-{
-}
+PanelInspector::~PanelInspector() {}
 
 bool PanelInspector::Awake()
 {
@@ -37,6 +35,7 @@ bool PanelInspector::Update()
 		GameObject* currentGameObject = editor->engine->GetSceneManager()->GetCurrentScene()->GetGameObject(editor->panelGameObjectInfo.selectedGameObjectID);
 		for (Component* component : currentGameObject->GetComponents())
 		{
+			hasScript = false;
 			if (component->GetType() == ComponentType::SCRIPT)
 			{
 				hasScript = true;
@@ -44,7 +43,6 @@ bool PanelInspector::Update()
 			component->InspectorDraw(editor->GetPanelChooser());
 		}
 	}
-
 	ImGui::End();
 	return true;
 }

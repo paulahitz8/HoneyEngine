@@ -1,12 +1,10 @@
-name2 = "Turret"
-name1 = "Tank"
+name = "Tank"
 position = {x, y, z}
 speed = 2
 
-
 function TankMovement(posX, posZ, key, rotY)
 
-	FindTankName(name1)
+	--FindTankName(name)
 	
 	position.x = posX
 	position.z = posZ
@@ -58,15 +56,4 @@ function TankMovement(posX, posZ, key, rotY)
 	end
 
 	return position
-end
-
-function TurretRotation(width, mouseX)
-
-	FindTurretName(name2)
-
-	centerPos = width / 2
-	mouseRot = mouseX - centerPos
-
-	return mouseRot
-	
 end

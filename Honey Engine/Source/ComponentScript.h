@@ -12,4 +12,6 @@ public:
 	bool Update();
 
 	bool InspectorDraw(PanelChooser* chooser);
+
+	std::string name;
 };

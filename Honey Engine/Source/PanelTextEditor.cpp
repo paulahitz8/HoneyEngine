@@ -38,7 +38,6 @@ bool PanelTextEditor::Update()
 	if (ImGui::Button("Save"))
 	{
 		savedText = editorBox.GetAllText();
-		//savedTextChar = savedText.c_str();
 		editor->engine->GetFileSystem()->SaveFile(editor->GetPanelAssets()->scriptPath.c_str(), savedText);
 	}
 	ImGui::SameLine();
@@ -47,6 +46,7 @@ bool PanelTextEditor::Update()
 		if (!editor->GetPanelInspector()->hasScript)
 		{
 			editor->engine->GetSceneManager()->GetCurrentScene()->GetGameObject(editor->panelGameObjectInfo.selectedGameObjectID)->CreateComponent<ComponentScript>();
+			editor->engine->GetSceneManager()->GetCurrentScene()->GetGameObject(editor->panelGameObjectInfo.selectedGameObjectID)->GetComponent<ComponentScript>()->name = editor->GetPanelAssets()->scriptName;
 		}
 	}
 	ImGui::SameLine(ImGui::GetWindowWidth() - 60);

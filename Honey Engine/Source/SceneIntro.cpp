@@ -78,12 +78,13 @@ bool SceneIntro::Update(float dt)
 {
 	if (engine->GetSceneManager()->runtimeState == RuntimeState::PLAYING)
 	{
-		if (lua->luaWork->isName)
-		{
-			lua->luaWork->GetPosFromGOName();
-			lua->luaWork->isName = false;
-		}
 		lua = new Lua(engine);
+		/*if (lua->luaWork->isName)
+		{*/
+			lua->luaWork->GetPosCScript();
+			lua->luaWork->isName = false;
+		//}
+		//lua = new Lua(engine);
 		if (engine->GetInput()->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		{
 			//bulletRot = true;

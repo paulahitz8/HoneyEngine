@@ -29,9 +29,9 @@ public:
 	static int FindTankName(lua_State* ptrState);
 	static int FindTurretName(lua_State* ptrState);
 	static int FindBulletName(lua_State* ptrState);
-	int GetPosFromGOName();
-	int SetPosFromGONameTank(float posx, float posz, float roty);
-	int SetPosFromGONameBullet(float posx, float posz, float posy);
+	int GetPosCScript();
+	int SetPosCScript(float posx, float posz, float roty);
+	int SetPosCScriptBullet(float posx, float posz, float posy);
 	void CreateBullet();
 
 private:

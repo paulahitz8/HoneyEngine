@@ -70,10 +70,8 @@ bool PanelAssets::Update()
 					std::string script = editor->engine->GetFileSystem()->OpenFile(path.string().c_str());
 					editor->GetPanelTextEditor()->editorBox.SetText(script);
 					editor->toggleTextEditor = true;
-					
 				}
 			}
-			
 		}
 
 		ImGui::TextWrapped(filenameString.c_str());

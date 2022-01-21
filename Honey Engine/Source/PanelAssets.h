@@ -4,10 +4,12 @@
 #include "stb_image.h"
 
 class Editor;
-struct TextureIcon {
+struct TextureIcon
+{
 	unsigned int id = 0;
 	int width, height, nrChannels;
 };
+
 class PanelAssets : public Panel
 {
 public:
@@ -29,5 +31,4 @@ private:
 	std::string fileIcon, directoryIcon;
 	const std::filesystem::path assetsDir = "Assets";
 	std::filesystem::path currentDir = "Assets";
-	
 };

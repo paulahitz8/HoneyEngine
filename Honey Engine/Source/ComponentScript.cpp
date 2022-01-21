@@ -27,7 +27,7 @@ bool ComponentScript::Start()
 
 bool ComponentScript::Update()
 {
-	
+	//name = owner->GetEngine()->GetEditor()->GetPanelAssets()->scriptName;
 	return true;
 }
 
@@ -35,7 +35,7 @@ bool ComponentScript::InspectorDraw(PanelChooser* chooser)
 {
 	bool ret = true;
 
-	if (ImGui::CollapsingHeader(owner->GetEngine()->GetEditor()->GetPanelAssets()->scriptName.c_str()))
+	if (ImGui::CollapsingHeader(name.c_str()))
 	{
 		// inspector variables
 	}

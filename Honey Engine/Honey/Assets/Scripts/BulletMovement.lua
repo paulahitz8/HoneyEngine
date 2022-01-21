@@ -1,12 +1,13 @@
 name = "Bullet"
 position = {x, y, z}
 speed = 1
+callatelua = 8
 
 function BulletMovement(posX, posY, posZ, rotY)
 
 	--print("[LUA] SetPosX is being called\n")
 
-	FindBulletName(name)
+	--FindBulletName(name)
 	
 	position.x = posX
 	position.y = posY
@@ -27,3 +28,4 @@ function BulletMovement(posX, posY, posZ, rotY)
 
 	return position
 end
+
