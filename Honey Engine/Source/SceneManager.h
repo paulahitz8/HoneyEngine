@@ -17,6 +17,7 @@ class ComponentMesh;
 class ComponentMaterial;
 class ComponentInfo;
 class ComponentCamera;
+class ComponentScript;
 
 enum class RuntimeState
 {
@@ -71,6 +72,7 @@ public:
 	Json SaveComponentMesh(ComponentMesh* componentMesh);
 	Json SaveComponentMaterial(ComponentMaterial* componentMaterial);
 	Json SaveComponentInfo(ComponentInfo* componentInfo);
+	Json SaveComponentScript(ComponentScript* componentScript);
 	Json SaveComponentCamera(ComponentCamera* componentCamera);
 	bool LoadScene(Scene* scene, const char* sceneName);
 	void LoadComponentTransform(ComponentTransform* componentTransform, Json jsonComponentTransform);

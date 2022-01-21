@@ -7,6 +7,7 @@
 #include "ComponentMaterial.h"
 #include "ComponentInfo.h"
 #include "ComponentCamera.h"
+#include "ComponentScript.h"
 #include "Editor.h"
 
 #include "Defs.h"
@@ -272,6 +273,12 @@ Json SceneManager::SaveComponentInfo(ComponentInfo* componentInfo)
 	return jsonComponentInfo;
 }
 
+Json SceneManager::SaveComponentScript(ComponentScript* componentScript)
+{
+	Json jsonComponentScript;
+	return jsonComponentScript;
+}
+
 Json SceneManager::SaveComponentCamera(ComponentCamera* componentCamera)
 {
 	Json jsonComponentCamera;
@@ -340,6 +347,9 @@ bool SceneManager::SaveScene(Scene* scene)
 			case ComponentType::CAMERA:
 				jsonComponent = SaveComponentCamera((ComponentCamera*)component);
 				jsonComponent["component_type"] = "camera";
+			case ComponentType::SCRIPT:
+				jsonComponent = SaveComponentScript((ComponentScript*)component);
+				jsonComponent["component_type"] = "script";
 			default:
 				break;
 			}

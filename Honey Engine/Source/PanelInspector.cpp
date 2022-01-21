@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "SceneManager.h"
 #include "GameObject.h"
+#include "ComponentScript.h"
 
 PanelInspector::PanelInspector(Editor* editor)
 {
@@ -36,8 +37,18 @@ bool PanelInspector::Update()
 		GameObject* currentGameObject = editor->engine->GetSceneManager()->GetCurrentScene()->GetGameObject(editor->panelGameObjectInfo.selectedGameObjectID);
 		for (Component* component : currentGameObject->GetComponents())
 		{
+			if (component->GetType() == ComponentType::SCRIPT)
+			{
+				component->Update();
+			}
 			component->InspectorDraw(editor->GetPanelChooser());
 		}
+		if (ImGui::Button("Add Script"))
+		{
+			Component* componentScript = new ComponentScript(currentGameObject);
+			currentGameObject->AddComponent(componentScript);
+		}
+
 	}
 
 	ImGui::End();
