@@ -162,6 +162,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\ComponentScript.cpp" />
     <ClCompile Include="Source\PanelTextEditor.cpp" />
     <ClCompile Include="Source\Lua.cpp" />
     <ClCompile Include="Source\Camera3D.cpp" />
@@ -247,6 +248,7 @@
     <ClCompile Include="Source\TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ComponentScript.h" />
     <ClInclude Include="Source\PanelTextEditor.h" />
     <ClInclude Include="Source\Lua.h" />
     <ClInclude Include="Source\Camera3D.h" />
