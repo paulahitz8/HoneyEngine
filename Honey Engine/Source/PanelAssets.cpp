@@ -1,6 +1,9 @@
 #include "PanelAssets.h"
 #include <imgui.h>
 #include "Editor.h"
+#include "FileSystem.h"
+#include "PanelTextEditor.h"
+#include "Engine.h"
 #include "glew.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
@@ -9,12 +12,9 @@ PanelAssets::PanelAssets(Editor* editor) : currentDir(assetsDir), fileIcon("Asse
 {
 	panelName = "Assets";
 	this->editor = editor;
-
 }
 
-PanelAssets::~PanelAssets()
-{
-}
+PanelAssets::~PanelAssets() {}
 
 bool PanelAssets::Start()
 {
@@ -25,7 +25,6 @@ bool PanelAssets::Start()
 
 bool PanelAssets::Update()
 {
-
 	ImGui::Begin("Assets");
 	float padding = 16.0f;
 	float iconSize = 96.0f;
@@ -37,13 +36,15 @@ bool PanelAssets::Update()
 	ImGui::Columns(columnCount, 0, false);
 	//Back button when we enter on a folder, however we dont want it to go further back if we are on the assets folder or the
 	//user could access system files which is not right
-	if (currentDir != std::filesystem::path(assetsDir)) {
-		if (ImGui::Button("<-")) {
+	if (currentDir != std::filesystem::path(assetsDir))
+	{
+		if (ImGui::Button("<")) {
 			//setting current directory to its parent (the one before)
 			currentDir = currentDir.parent_path();
 		}
 	}
-	for (auto& directoryEntry : std::filesystem::directory_iterator(currentDir)) {
+	for (auto& directoryEntry : std::filesystem::directory_iterator(currentDir))
+	{
 		const auto& path = directoryEntry.path();
 		auto relativePath = std::filesystem::relative(path, assetsDir);
 		std::string filenameString = relativePath.filename().string();
@@ -53,10 +54,26 @@ bool PanelAssets::Update()
 		ImGui::ImageButton((ImTextureID)id, { iconSize,iconSize });
 		ImGui::PopStyleColor();
 
-		if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+		if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+		{
 			if (directoryEntry.is_directory())
+			{
 				currentDir /= path.filename();
-
+			}
+			else
+			{
+				std::string ext = path.extension().string();
+				if (ext == ".lua")
+				{
+					scriptPath = path.string();
+					scriptName = path.filename().string();
+					std::string script = editor->engine->GetFileSystem()->OpenFile(path.string().c_str());
+					editor->GetPanelTextEditor()->editorBox.SetText(script);
+					editor->toggleTextEditor = true;
+					
+				}
+			}
+			
 		}
 
 		ImGui::TextWrapped(filenameString.c_str());

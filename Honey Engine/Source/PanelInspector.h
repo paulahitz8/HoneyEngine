@@ -14,12 +14,14 @@ public:
 	bool Update();
 	bool PostUpdate();
 
+	bool hasScript = false;
+
 private:
 	// Needed modules
 	Editor* editor = nullptr;
 
 	// Bools for the different options
 	bool debugOptions = false;
-		bool drawVertexNormals = false;
-		bool drawFacesNormals = false;
+	bool drawVertexNormals = false;
+	bool drawFacesNormals = false;
 };

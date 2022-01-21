@@ -19,12 +19,15 @@ public:
 
 	//Temp Function to load file and directory icons
 	void LoadIcons(TextureIcon& texture,const char* path);
+	std::string scriptPath;
+	std::string scriptName;
 
 private:
 	Editor* editor = nullptr;
 	TextureIcon fileTexture;
 	TextureIcon directoryTexture;
 	std::string fileIcon, directoryIcon;
-	const std::filesystem::path assetsDir = "Library";
-	std::filesystem::path currentDir = "Library";
+	const std::filesystem::path assetsDir = "Assets";
+	std::filesystem::path currentDir = "Assets";
+	
 };

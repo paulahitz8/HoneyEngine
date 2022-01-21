@@ -51,6 +51,9 @@ public:
 	void AddPanel(Panel* panel);
 	void RemovePanel(Panel* panel);
 	PanelChooser* GetPanelChooser();
+	PanelTextEditor* GetPanelTextEditor();
+	PanelAssets* GetPanelAssets();
+	PanelInspector* GetPanelInspector();
 	void Markdown(const std::string& markdown_);
 	void MarkdownExample();
 	void UpdatePanelsState();

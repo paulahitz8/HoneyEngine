@@ -16,9 +16,10 @@ public:
 	bool Update();
 	bool PostUpdate();
 
+	TextEditor editorBox;
+
 private:
 
-	TextEditor editorBox;
 	std::string savedText;
 	const char* savedTextChar;
 	char* savedNoConstTextChar;

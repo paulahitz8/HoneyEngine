@@ -39,16 +39,10 @@ bool PanelInspector::Update()
 		{
 			if (component->GetType() == ComponentType::SCRIPT)
 			{
-				component->Update();
+				hasScript = true;
 			}
 			component->InspectorDraw(editor->GetPanelChooser());
 		}
-		if (ImGui::Button("Add Script"))
-		{
-			Component* componentScript = new ComponentScript(currentGameObject);
-			currentGameObject->AddComponent(componentScript);
-		}
-
 	}
 
 	ImGui::End();

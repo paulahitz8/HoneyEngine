@@ -51,8 +51,6 @@ bool PanelHierarchy::Update()
 	{
 		editor->Markdown("# Game Objects");
 		ImGui::SameLine();
-		ImGui::Text("Here you can manage your game objects.");
-		ImGui::SameLine();
 		HelpMarker(
 			"This is a more typical looking tree with selectable nodes.\n"
 			"Click to select, CTRL+Click to toggle, click on arrows or double-click to open.");

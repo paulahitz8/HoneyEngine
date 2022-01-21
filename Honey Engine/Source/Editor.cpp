@@ -108,6 +108,21 @@ PanelChooser* Editor::GetPanelChooser()
 	return this->panelChooser;
 }
 
+PanelAssets* Editor::GetPanelAssets()
+{
+	return this->panelAssets;
+}
+
+PanelTextEditor* Editor::GetPanelTextEditor()
+{
+	return this->panelTextEditor;
+}
+
+PanelInspector* Editor::GetPanelInspector()
+{
+	return this->panelGameObject;
+}
+
 bool Editor::Awake(Json configModule)
 {
 	bool ret = true;

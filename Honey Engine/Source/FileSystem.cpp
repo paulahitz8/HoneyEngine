@@ -111,3 +111,32 @@ void FileSystem::AddPath(const char* path)
 {
 	rootPath += path;
 }
+
+std::string FileSystem::OpenFile(const char* path)
+{
+    std::string fileText;
+
+    SDL_assert(path != nullptr);
+    std::ifstream stream(path);
+    if (stream.is_open()) {
+        std::string line;
+
+        while (std::getline(stream, line)) {
+            fileText.append(line+"\n");
+        }
+    }
+    stream.close();
+    return fileText;
+}
+
+bool FileSystem::SaveFile(const char* path, std::string text)
+{
+    bool ret = true;
+    SDL_assert(path != nullptr);
+    std::ofstream stream(path);
+    if (stream.is_open()) {
+        stream.write(text.c_str(),text.size());
+    }
+    stream.close();
+    return ret;
+}

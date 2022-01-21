@@ -1,5 +1,12 @@
 #include "PanelTextEditor.h"
 #include "TextEditor.h"
+#include "Editor.h"
+#include "FileSystem.h"
+#include "PanelAssets.h"
+#include "ComponentScript.h"
+#include "SceneManager.h"
+#include "PanelInspector.h"
+#include "Engine.h"
 #include <imgui.h>
 #include "Editor.h"
 
@@ -9,9 +16,7 @@ PanelTextEditor::PanelTextEditor(Editor* editor)
 	this->editor = editor;
 }
 
-PanelTextEditor::~PanelTextEditor()
-{
-}
+PanelTextEditor::~PanelTextEditor() {}
 
 bool PanelTextEditor::Awake()
 {
@@ -30,18 +35,23 @@ bool PanelTextEditor::PreUpdate()
 bool PanelTextEditor::Update()
 {
 	ImGui::Begin("Editor Window");
-	if (ImGui::Button("Save LUA Script")) {
+	if (ImGui::Button("Save"))
+	{
 		savedText = editorBox.GetAllText();
-		savedTextChar = savedText.c_str();
+		//savedTextChar = savedText.c_str();
+		editor->engine->GetFileSystem()->SaveFile(editor->GetPanelAssets()->scriptPath.c_str(), savedText);
 	}
 	ImGui::SameLine();
-	if (ImGui::Button("Load LUA Script")) {
-		if (savedTextChar != nullptr) {
-			editorBox.InsertText(savedTextChar);
+	if (ImGui::Button("Attach"))
+	{
+		if (!editor->GetPanelInspector()->hasScript)
+		{
+			editor->engine->GetSceneManager()->GetCurrentScene()->GetGameObject(editor->panelGameObjectInfo.selectedGameObjectID)->CreateComponent<ComponentScript>();
 		}
 	}
 	ImGui::SameLine(ImGui::GetWindowWidth() - 60);
-	if (ImGui::Button("Clear")) {
+	if (ImGui::Button("Clear"))
+	{
 		editorBox.SelectAll();
 		editorBox.Delete();
 	}

@@ -28,6 +28,8 @@ public:
 	bool SaveFile(const char* path) const;
 	void EnumerateFiles(const char* path, std::vector<std::string>& files, std::vector<std::string>& dirs);
 	void AddPath(const char* path);
+	std::string OpenFile(const char* path);
+	bool SaveFile(const char* path, std::string text);
 
 public:
 	fs::path rootPath;
