@@ -30,8 +30,9 @@ public:
 	static int FindTurretName(lua_State* ptrState);
 	static int FindBulletName(lua_State* ptrState);
 	int GetPosFromGOName();
-	int SetPosFromGOName(float posx = 0, float posz = 0, float roty = 0, float posy = 0);
-	
+	int SetPosFromGONameTank(float posx, float posz, float roty);
+	int SetPosFromGONameBullet(float posx, float posz, float posy);
+	void CreateBullet();
 
 private:
 	static SceneManager* instance;
@@ -45,9 +46,13 @@ private:
 	static float xBulletPos;
 	static float yBulletPos;
 	static float zBulletPos;
+	static float yBulletRot;
+	static float yTurretRot;
 	static float mouseRot;
 	static bool isName;
 	bool isTest2 = false;
+	bool bulletExists = false;
+	//bool bulletRot = false;
 };
 
 class Lua

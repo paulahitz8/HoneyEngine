@@ -9,6 +9,7 @@
 #include "Scene.h"
 #include "Input.h"
 #include "Window.h"
+#include "ComponentMaterial.h"
 
 bool LuaWork::isName;
 float LuaWork::xPos;
@@ -17,10 +18,34 @@ float LuaWork::yRot;
 float LuaWork::xBulletPos;
 float LuaWork::yBulletPos;
 float LuaWork::zBulletPos;
+float LuaWork::yBulletRot;
+float LuaWork::yTurretRot;
 float LuaWork::mouseRot;
 std::string LuaWork::tankNameInLua;
 std::string LuaWork::bulletNameInLua;
 std::string LuaWork::turretNameInLua;
+
+void LuaWork::CreateBullet()
+{
+	std::string bulletName = bulletNameInLua;
+	std::vector<GameObject*>::iterator item = engine->GetSceneManager()->GetCurrentScene()->gameObjectList.begin();
+	while (item != engine->GetSceneManager()->GetCurrentScene()->gameObjectList.end())
+	{
+		if ((*item)->name.compare(bulletName) == 0)
+		{
+			bulletExists = true;
+		}
+		item++;
+	}
+	if (!bulletExists)
+	{
+		GameObject* bullet = Importer::GetInstance()->ImportModel("Assets/Models/Shell.fbx");
+		bullet->SetName("Bullet");
+		bullet->CreateComponent<ComponentMaterial>();
+		engine->GetSceneManager()->GetCurrentScene()->bulletRot = true;
+		//bullet->GetComponent<ComponentMaterial>()->LoadTexture("Assets/Textures/silver.png");
+	}
+}
 
 LuaWork::LuaWork(HoneyEngine* engine)
 {
@@ -63,6 +88,7 @@ int LuaWork::GetPosFromGOName()
 	{
 			std::string goName = tankNameInLua;
 			std::string bulletName = bulletNameInLua;
+			std::string turretName = turretNameInLua;
 			std::vector<GameObject*>::iterator item = engine->GetSceneManager()->GetCurrentScene()->gameObjectList.begin();
 			while (item != engine->GetSceneManager()->GetCurrentScene()->gameObjectList.end())
 			{
@@ -82,6 +108,14 @@ int LuaWork::GetPosFromGOName()
 						xBulletPos = (*item)->GetTransform()->GetPosition().x;
 						yBulletPos = (*item)->GetTransform()->GetPosition().y;
 						zBulletPos = (*item)->GetTransform()->GetPosition().z;
+						yBulletRot = (*item)->GetTransform()->GetRotation().y;
+					}
+				}
+				else if ((*item)->name.compare(turretName) == 0)
+				{
+					if ((*item)->GetTransform() != nullptr)
+					{
+						yTurretRot = (*item)->GetTransform()->GetRotation().y;
 					}
 				}
 				item++;
@@ -96,12 +130,11 @@ int LuaWork::GetPosFromGOName()
 	return 1;
 }
 
-int LuaWork::SetPosFromGOName(float posx, float posz, float roty, float posy)
+int LuaWork::SetPosFromGONameTank(float posx, float posz, float roty)
 {
 	try
 	{
 		std::string goName = tankNameInLua;
-		std::string bulletName = bulletNameInLua;
 		std::string turretName = turretNameInLua;
 		std::vector<GameObject*>::iterator item = engine->GetSceneManager()->GetCurrentScene()->gameObjectList.begin();
 		while (item != engine->GetSceneManager()->GetCurrentScene()->gameObjectList.end())
@@ -125,7 +158,34 @@ int LuaWork::SetPosFromGOName(float posx, float posz, float roty, float posy)
 					
 				}
 			}
-			else if ((*item)->name.compare(bulletName) == 0)
+			else if ((*item)->name.compare(turretName) == 0)
+			{
+				if ((*item)->GetTransform() != nullptr)
+				{
+					(*item)->GetTransform()->SetRotation({ (*item)->GetTransform()->GetRotation().x, -mouseRot * 0.005f, (*item)->GetTransform()->GetRotation().z });
+				}
+			}
+			item++;
+		}
+		return 1;
+	}
+	catch (...)
+	{
+		CONSOLE_LOG("Couldn't find any gameObject with this name\n");
+		appLog->AddLog("Couldn't find any gameObject with this name\n");
+	}
+	return 1;
+}
+
+int LuaWork::SetPosFromGONameBullet(float posx, float posz, float posy)
+{
+	try
+	{
+		std::string bulletName = bulletNameInLua;
+		std::vector<GameObject*>::iterator item = engine->GetSceneManager()->GetCurrentScene()->gameObjectList.begin();
+		while (item != engine->GetSceneManager()->GetCurrentScene()->gameObjectList.end())
+		{
+			if ((*item)->name.compare(bulletName) == 0)
 			{
 				if ((*item)->GetTransform() != nullptr)
 				{
@@ -141,13 +201,11 @@ int LuaWork::SetPosFromGOName(float posx, float posz, float roty, float posy)
 					{
 						(*item)->GetTransform()->SetPosition({ (*item)->GetTransform()->GetPosition().x, (*item)->GetTransform()->GetPosition().y, posz });
 					}
-				}
-			}
-			else if ((*item)->name.compare(turretName) == 0)
-			{
-				if ((*item)->GetTransform() != nullptr)
-				{
-					(*item)->GetTransform()->SetRotation({ (*item)->GetTransform()->GetRotation().x, -mouseRot * 0.005f, (*item)->GetTransform()->GetRotation().z });
+					if (engine->GetSceneManager()->GetCurrentScene()->bulletRot)
+					{
+						(*item)->GetTransform()->SetRotation({ (*item)->GetTransform()->GetRotation().x, yTurretRot - yRot, (*item)->GetTransform()->GetRotation().z });
+						engine->GetSceneManager()->GetCurrentScene()->bulletRot = false;
+					}
 				}
 			}
 			item++;
@@ -253,7 +311,7 @@ Lua::Lua(HoneyEngine* engine)
 			}
 		}
 
-		luaWork->SetPosFromGOName(luaWork->xPos, luaWork->zPos, luaWork->yRot);
+		luaWork->SetPosFromGONameTank(luaWork->xPos, luaWork->zPos, luaWork->yRot);
 	}
 	else
 	{
@@ -262,17 +320,19 @@ Lua::Lua(HoneyEngine* engine)
 	}
 
 	// Bullet Movement
-	/*if (CheckLua(L, luaL_dofile(L, "Assets/Scripts/BulletMovement.lua")))
-	{
 
+	if (CheckLua(L, luaL_dofile(L, "Assets/Scripts/BulletMovement.lua")))
+	{
+		//luaWork->yBulletRot -= luaWork->yRot;
+		luaWork->SetPosFromGONameBullet(luaWork->xBulletPos, luaWork->zBulletPos, luaWork->yBulletPos);
 		lua_getglobal(L, "BulletMovement");
 		if (lua_isfunction(L, -1))
 		{
 			lua_pushnumber(L, luaWork->xBulletPos);
 			lua_pushnumber(L, luaWork->yBulletPos);
 			lua_pushnumber(L, luaWork->zBulletPos);
-			lua_pushnumber(L, engine->GetSceneManager()->gameDt);
-
+			lua_pushnumber(L, luaWork->yBulletRot);
+			//std::cout << luaWork->yBulletRot << std::endl;
 			if (CheckLua(L, lua_pcall(L, 4, 3, 0)))
 			{
 				if (lua_istable(L, -3))
@@ -292,8 +352,9 @@ Lua::Lua(HoneyEngine* engine)
 					luaWork->yBulletPos = (float)lua_tonumber(L, -1);
 					lua_pop(L, 1);
 
-					std::cout << "the position is x:  " << luaWork->xBulletPos << "  y: " << luaWork->yBulletPos << "   z:  " << luaWork->zBulletPos << std::endl;
-					luaWork->SetPosFromGOName(luaWork->xBulletPos, luaWork->zBulletPos, luaWork->yBulletPos);
+					std::cout << "bullet script working" << std::endl;
+					//std::cout << "the position is x:  " << luaWork->xBulletPos << "  y: " << luaWork->yBulletPos << "   z:  " << luaWork->zBulletPos << std::endl;
+					luaWork->SetPosFromGONameBullet(luaWork->xBulletPos, luaWork->zBulletPos, luaWork->yBulletPos);
 				}
 			}
 		}
@@ -302,7 +363,7 @@ Lua::Lua(HoneyEngine* engine)
 	{
 		std::string errormsg = lua_tostring(L, -1);
 		std::cout << errormsg << std::endl;
-	}*/
+	}
 
 }
 

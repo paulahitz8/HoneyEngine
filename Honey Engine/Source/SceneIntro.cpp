@@ -17,7 +17,7 @@
 #include "ComponentCamera.h"
 #include "GameObject.h"
 #include "Lua.h"
-//#include "Importer.h"
+#include "Input.h"
 #include "SceneManager.h"
 
 #include "ComponentMaterial.h" // Temporal for the assignment, just to display the texture on the model when the program begins...
@@ -84,6 +84,12 @@ bool SceneIntro::Update(float dt)
 			lua->luaWork->isName = false;
 		}
 		lua = new Lua(engine);
+		if (engine->GetInput()->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+		{
+			//bulletRot = true;
+			lua->luaWork->CreateBullet();
+		}
+		
 	}
 
 	for (GameObject* go : this->gameObjectList)

@@ -41,7 +41,6 @@ GameObject* Importer::ImportModel(const char* path)
 			
 			return GetOneMesh(scene);
 		}
-
 	}
 
 	aiReleaseImport(scene);

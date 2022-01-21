@@ -150,6 +150,7 @@ public:
 	std::vector<GameObject*> gameObjectList;
 	GameObject* rootGo = nullptr;
 	GameObject* currentCamera = nullptr;
+	bool bulletRot = false;
 };
 
 #endif // __SCENE_H__
