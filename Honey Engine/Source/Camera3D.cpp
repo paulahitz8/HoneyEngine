@@ -23,7 +23,7 @@ Camera3D::Camera3D(HoneyEngine* engine) : Module()
 	up = float3(0.0f, 1.0f, 0.0f);
 	front = float3(0.0f, 0.0f, 1.0f);
 
-	position = float3(0.0f, 5.0f, -15.0f);
+	position = float3(30.0f, 70.0f, -150.0f);
 	reference = float3(0.0f, 0.0f, 0.0f);
 
 	CalculateViewMatrix();

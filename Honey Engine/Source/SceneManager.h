@@ -81,6 +81,8 @@ public:
 public:
 	bool active;
 	Scene* currentScene = nullptr;
+	RuntimeState runtimeState = RuntimeState::STOPPED;
+	float gameDt = 0.0f;
 
 private:
 	// Modules
@@ -101,13 +103,13 @@ private:
 	float timeScale = 1.0f; // 1 --> Real Time / < 1 --> Slower / > 1 Faster, 0 Pause or Stop
 	// Delta Time: last frame time expressed in seconds (Game Clock)
 	Timer timer; // Used for gameDt (resets each frame)
-	float gameDt = 0.0f;
+	
 	float gameClockSpeed = 0.0f; // != 0 (timeScale) --> Playing / == 0 --> Pause or Stop
 	// Real Time Since Startup: seconds since game start (Real Time Clock) --> Engine.cpp
 	// Real Time Delta Time: last frame time expressed in seconds (Real Time Clock) --> Engine.cpp
 	// --------------------------------------------------
 	
-	RuntimeState runtimeState = RuntimeState::STOPPED;
+	
 
 	JsonHandler jsonHandler;
 };

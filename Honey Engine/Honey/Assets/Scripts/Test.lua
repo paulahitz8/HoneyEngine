@@ -1,17 +1,6 @@
-
 name = "GameObject 1"
 position = {x, z}
-speed = 1
-
-function Update(posX, posZ, dt)
-	position.x = posX
-	position.z = posZ
-
-	position.x = position.x + (speed * dt)
-	position.z = position.z + (speed * dt)
-
-	return position
-end
+speed = 0.5
 
 function Movement(posX, posZ, key)
 	--print("[LUA] SetPosX is being called\n")
@@ -20,23 +9,19 @@ function Movement(posX, posZ, key)
 	position.x = posX
 	position.z = posZ
 
-	if key == "I" then
-	
+	if(key == "A")
+	then
 		position.x = position.x + speed
-	end
-	if key == "K" then
-	
+	elseif(key == "D")
+	then
 		position.x = position.x - speed
-	end
-	if key == "J" then
-	
+	elseif(key == "W")
+	then
 		position.z = position.z + speed
-	end
-	if key == "L" then
-	
+	elseif(key == "S")
+	then
 		position.z = position.z - speed
 	end
 
-	-- set position ?
 	return position
 end
