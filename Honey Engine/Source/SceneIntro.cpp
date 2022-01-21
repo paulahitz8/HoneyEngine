@@ -76,18 +76,16 @@ bool SceneIntro::PreUpdate(float dt)
 // Update
 bool SceneIntro::Update(float dt)
 {
-	lua = new Lua(engine);
-	if (lua->luaWork->isTest)
+	if (engine->GetSceneManager()->runtimeState == RuntimeState::PLAYING)
 	{
-		lua->luaWork->Test2();
-		lua->luaWork->isTest = false;
+		if (lua->luaWork->isName)
+		{
+			lua->luaWork->GetPosFromGOName();
+			lua->luaWork->isName = false;
+		}
+		lua = new Lua(engine);
 	}
-	if (lua->luaWork->isMovingX || lua->luaWork->isMovingZ)
-	{
-		lua->luaWork->Moving();
-		if (lua->luaWork->isMovingX) lua->luaWork->isMovingX = false;
-		if (lua->luaWork->isMovingZ) lua->luaWork->isMovingZ = false;
-	}
+
 	for (GameObject* go : this->gameObjectList)
 	{
 		go->Update();

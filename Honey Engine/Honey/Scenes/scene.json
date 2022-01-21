@@ -1,7 +1,7 @@
 {
     "SceneIntro": {
         "active": true,
-        "game_objects_amount": 4,
+        "game_objects_amount": 11,
         "game_objects_list": [
             {
                 "active": true,
@@ -68,6 +68,73 @@
                 "active": true,
                 "children_id_list": [
                     2,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            3.1415927410125732,
+                            -0.0
+                        ],
+                        "scale": [
+                            0.20000000298023224,
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.7484556025237907e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.7484556025237907e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.7484556025237907e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.7484556025237907e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    }
+                ],
+                "id": 1,
+                "name": "Tank",
+                "parent": -1
+            },
+            {
+                "active": true,
+                "children_id_list": [
                     3
                 ],
                 "components_list": [
@@ -81,99 +148,40 @@
                         ],
                         "rotation": [
                             -0.0,
-                            0.0,
+                            -0.017455484718084335,
                             -0.0
                         ],
                         "scale": [
+                            0.9999998807907104,
                             1.0,
-                            1.0,
-                            1.0
+                            0.9999998807907104
                         ],
                         "transform_matrix": [
-                            1.0,
+                            -0.19996951520442963,
                             0.0,
+                            -0.003490463364869356,
                             0.0,
+                            0.20000000298023224,
                             0.0,
-                            1.0,
+                            0.003490463364869356,
                             0.0,
-                            0.0,
-                            0.0,
-                            1.0,
+                            -0.19996951520442963,
                             0.0,
                             0.0,
                             0.0
                         ],
                         "transform_matrix_local": [
-                            1.0,
+                            0.9998475909233093,
                             0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    {
-                        "component_type": "info"
-                    }
-                ],
-                "id": 1,
-                "name": "GameObject 1",
-                "parent": -1
-            },
-            {
-                "active": true,
-                "children_id_list": [],
-                "components_list": [
-                    {
-                        "component_type": "transform",
-                        "is_dirty": false,
-                        "position": [
-                            0.0,
-                            2.0,
-                            0.0
-                        ],
-                        "rotation": [
-                            -0.0,
-                            0.0,
-                            -0.0
-                        ],
-                        "scale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "transform_matrix": [
-                            1.0,
-                            0.0,
-                            -2.0861628513557662e-07,
-                            0.0,
-                            1.0,
-                            0.0,
-                            2.0861628513557662e-07,
-                            0.0,
-                            1.0,
-                            0.0,
-                            2.0,
-                            0.0
-                        ],
-                        "transform_matrix_local": [
-                            1.0,
-                            0.0,
-                            -2.0861628513557662e-07,
-                            0.0,
-                            1.0,
-                            0.0,
-                            2.0861628513557662e-07,
+                            0.017452403903007507,
                             -0.0,
                             1.0,
                             0.0,
-                            2.0,
+                            -0.017452403903007507,
+                            -0.0,
+                            0.9998475909233093,
+                            0.0,
+                            0.0,
                             0.0
                         ]
                     },
@@ -183,25 +191,17 @@
                     {
                         "component_type": "mesh",
                         "faces_normals": false,
-                        "mesh": "Library/GameObject 2.sugar",
+                        "mesh": "Library/Turret.sugar",
                         "path": "",
                         "vertex_normals": false
                     },
                     {
                         "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
-                    },
-                    {
-                        "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
-                    },
-                    {
-                        "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
+                        "path": "Assets/Textures/green.png"
                     }
                 ],
                 "id": 2,
-                "name": "GameObject 2",
+                "name": "Turret",
                 "parent": 1
             },
             {
@@ -212,45 +212,45 @@
                         "component_type": "transform",
                         "is_dirty": false,
                         "position": [
-                            -4.0,
+                            0.0,
                             0.0,
                             0.0
                         ],
                         "rotation": [
                             -0.0,
-                            0.0,
+                            5.364422008824477e-07,
                             -0.0
                         ],
                         "scale": [
-                            1.0,
-                            1.0,
-                            1.0
+                            24.9999942779541,
+                            25.0,
+                            24.999982833862305
                         ],
                         "transform_matrix": [
-                            1.0,
+                            4.999236583709717,
+                            -7.549785436822276e-07,
+                            0.08725972473621368,
+                            7.416878133881255e-07,
+                            5.0,
+                            7.680397970943886e-07,
+                            -0.0872596874833107,
+                            -7.549785436822276e-07,
+                            4.999234676361084,
                             0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            -4.0,
                             0.0,
                             0.0
                         ],
                         "transform_matrix_local": [
-                            1.0,
+                            -24.9999942779541,
+                            -3.774892775254557e-06,
+                            9.20892216527136e-06,
+                            -3.7748950489913113e-06,
+                            25.0,
+                            -3.7748936847492587e-06,
+                            -9.208918527292553e-06,
+                            -3.7748925478808815e-06,
+                            -24.999982833862305,
                             0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0,
-                            -4.0,
                             0.0,
                             0.0
                         ]
@@ -267,19 +267,501 @@
                     },
                     {
                         "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
-                    },
-                    {
-                        "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
-                    },
-                    {
-                        "component_type": "material",
-                        "path": "Assets/Textures/Baker_house.png"
+                        "path": "Assets/Textures/green.png"
                     }
                 ],
                 "id": 3,
                 "name": "GameObject 3",
+                "parent": 2
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 4.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 4,
+                "name": "GameObject 4",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 5.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 5,
+                "name": "GameObject 5",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 6.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 6,
+                "name": "GameObject 6",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 7.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 7,
+                "name": "GameObject 7",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 8.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 8,
+                "name": "GameObject 8",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 9.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 9,
+                "name": "GameObject 9",
+                "parent": 1
+            },
+            {
+                "active": true,
+                "children_id_list": [],
+                "components_list": [
+                    {
+                        "component_type": "transform",
+                        "is_dirty": false,
+                        "position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotation": [
+                            -0.0,
+                            -2.1316282072803006e-14,
+                            -0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "transform_matrix": [
+                            -0.20000000298023224,
+                            0.0,
+                            1.748455247252423e-08,
+                            0.0,
+                            0.20000000298023224,
+                            0.0,
+                            -1.748455247252423e-08,
+                            0.0,
+                            -0.20000000298023224,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "transform_matrix_local": [
+                            1.0,
+                            0.0,
+                            2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            -2.1316282072803006e-14,
+                            -0.0,
+                            1.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "component_type": "info"
+                    },
+                    {
+                        "component_type": "mesh",
+                        "faces_normals": false,
+                        "mesh": "Library/GameObject 10.sugar",
+                        "path": "",
+                        "vertex_normals": false
+                    },
+                    {
+                        "component_type": "material",
+                        "path": "Assets/Textures/green.png"
+                    }
+                ],
+                "id": 10,
+                "name": "GameObject 10",
                 "parent": 1
             }
         ],

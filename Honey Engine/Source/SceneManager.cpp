@@ -446,7 +446,7 @@ void SceneManager::LoadComponentMesh(ComponentMesh* componentMesh, Json jsonComp
 	mesh = Importer::GetInstance()->LoadModel(jsonComponentMesh.at("mesh").get<std::string>().c_str());
 	componentMesh->SetMesh(mesh);
 
-	if (mesh->tex_coords)
+	if (mesh->tex_coords && !jsonComponentMaterial.empty())
 	{
 		GameObject* owner = componentMesh->owner;
 		ComponentMaterial* cMat = owner->CreateComponent<ComponentMaterial>();
@@ -458,6 +458,13 @@ void SceneManager::LoadComponentMesh(ComponentMesh* componentMesh, Json jsonComp
 
 			cMat->LoadTexture(texturePath.c_str());
 		}
+	}
+	else if (mesh->tex_coords && jsonComponentMaterial.empty())
+	{
+		GameObject* owner = componentMesh->owner;
+		ComponentMaterial* cMat = owner->CreateComponent<ComponentMaterial>();
+		cMat->SetTexture(mesh->texture);
+		cMat->LoadDefaultTexture(mesh->texture.textureID);
 	}
 }
 

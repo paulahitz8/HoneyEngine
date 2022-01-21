@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 
-
 extern "C"
 {
 #include "..\Honey\Lua\include\lua.h"
@@ -14,7 +13,6 @@ extern "C"
 #ifdef _WIN32
 #pragma comment(lib, "Honey/Lua/liblua54.a")
 #endif
-
 
 class HoneyEngine;
 class ComponentTransform;
@@ -28,22 +26,27 @@ public:
 	LuaWork(HoneyEngine* engine);
 	~LuaWork();
 
-	static int Test(lua_State* ptrState);
-	int Test2();
-	static int MoveX(lua_State* ptrState);
-	static int MoveZ(lua_State* ptrState);
-	int Moving();
+	static int FindTankName(lua_State* ptrState);
+	static int FindTurretName(lua_State* ptrState);
+	static int FindBulletName(lua_State* ptrState);
+	int GetPosFromGOName();
+	int SetPosFromGOName(float posx = 0, float posz = 0, float roty = 0, float posy = 0);
 	
 
 private:
 	static SceneManager* instance;
-	static std::string nameInLua;
+	static std::string tankNameInLua;
+	static std::string bulletNameInLua;
+	static std::string turretNameInLua;
 	HoneyEngine* engine;
 	static float xPos;
 	static float zPos;
-	static bool isTest;
-	static bool isMovingX;
-	static bool isMovingZ;
+	static float yRot;
+	static float xBulletPos;
+	static float yBulletPos;
+	static float zBulletPos;
+	static float mouseRot;
+	static bool isName;
 	bool isTest2 = false;
 };
 
@@ -54,8 +57,6 @@ public:
 	~Lua();
 
 	bool CheckLua(lua_State* L, int r);
-	//int lua_FindGOWithName(lua_State* ptrState);
-	//bool KindaStart();
 
 	LuaWork* luaWork = nullptr;
 
