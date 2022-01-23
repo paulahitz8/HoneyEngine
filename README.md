@@ -2,7 +2,7 @@
 
 A simple 3D game engine.
 
-![logo](https://github.com/paulahitz8/Engine/blob/main/Engine/Game/Assets/Resources/Logo/honeyengine_logo.png?raw=true)
+![logo](https://github.com/paulahitz8/HoneyEngine/blob/main/Honey%20Engine/Honey/Assets/Icons/honeyengine_logo.png?raw=true)
 
 ## Description
 
@@ -16,7 +16,7 @@ Thank you to Alex Ávila and Bosco Barber for letting us use their Ko-Fi Engine 
 
 - Paula Hitz (https://github.com/paulahitz8)
 - Irene Hernández (https://github.com/ihedud)
-- María Calle (https:://github.com/mav006)
+- María Calle (https://github.com/mav006)
 
 ## Tutorial
 In order to activate the scripts follow these steps:
@@ -32,7 +32,7 @@ In order to activate the scripts follow these steps:
 
 ## Features
 
-###NEW!###
+*NEW!*
 - Scripting with LUA
 	- Tank movement
 	- Turret movement
