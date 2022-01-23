@@ -9,7 +9,7 @@ A simple 3D game engine.
 HoneyEngine is a game engine created for our class "Game Engines" in our Video Game Design and Development Degree in CITM (UPC).
 For this last delivery we implemented scripting with LUA, a simple programming language that will manage our scripts. We implemented
 a communication method between the engine (C++) and the scripts (LUA), as well as an in-game text editor where the user can edit the
-scripts and attach them to game objects. Check bellow the TUTORIAL to know which steps to take to check this out.
+scripts and attach them to game objects. Check below the TUTORIAL to know which steps to take to check this out.
 
 Thank you to Alex Ávila and Bosco Barber for letting us use their Ko-Fi Engine as a base for the last delivery. :) 
 ## Developers
@@ -62,6 +62,10 @@ Camera Movement
 
 General Controls
 - ESC to quit
+
+## Bugs
+- One of the bugs we encountered was that the bullet does not have any texture.
+- For the panel inspector, where we wanted to display the variables of the LUA scripts, we did not find any way to get them. For the future, we would like to investigate furthermore to fix this issue.
 
 ## License
 
