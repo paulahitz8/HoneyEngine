@@ -174,6 +174,7 @@ void SceneManager::OnStop()
 	frameCount = 0;
 	time = 0.0f;
 
+	sceneIntro->message = false;
 	// Load the scene we saved before in .json
 	LoadScene(currentScene, "SceneIntro");
 }

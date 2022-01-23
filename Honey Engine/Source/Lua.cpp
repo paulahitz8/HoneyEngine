@@ -35,6 +35,8 @@ void LuaWork::CreateBullet()
 	}
 	if (!bulletExists)
 	{
+		CONSOLE_LOG("Creating bullet...");
+		appLog->AddLog("Creating bullet...");
 
 		GameObject* bullet = Importer::GetInstance()->ImportModel("Assets/Models/Shell.fbx");
 		bullet->SetName("Bullet");
@@ -217,7 +219,6 @@ Lua::Lua(HoneyEngine* engine)
 	this->engine = engine;
 	luaWork = new LuaWork(engine);
 	L = luaL_newstate();
-	
 	luaL_openlibs(L);
 	
 	// Tank Movement
@@ -373,8 +374,10 @@ bool Lua::CheckLua(lua_State* L, int r)
 {
 	if (r != LUA_OK)
 	{
+		compileError = true;
 		std::string errormsg = lua_tostring(L, -1);
 		std::cout << errormsg << std::endl;
+		appLog->AddLog(errormsg.c_str());
 		return false;
 	}
 	return true;

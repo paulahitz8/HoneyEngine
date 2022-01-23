@@ -46,7 +46,7 @@ bool SceneIntro::Start()
 	CONSOLE_LOG("Loading Intro assets");
 	appLog->AddLog("Loading Intro assets\n");
 	bool ret = true;
-
+	message = false;
 	// Load scene with a camera and several houses.
 	engine->GetSceneManager()->LoadScene(this, "SceneIntro");
 
@@ -69,7 +69,14 @@ bool SceneIntro::Update(float dt)
 	if (engine->GetSceneManager()->runtimeState == RuntimeState::PLAYING)
 	{
 		lua = new Lua(engine);
-		
+
+		if (!lua->compileError && !message)
+		{
+			message = true;
+			CONSOLE_LOG("Compilation successful.\n");
+			appLog->AddLog("Compilation succesful.\n");
+		}
+
 		lua->luaWork->GetPosCScript();
 
 		if (engine->GetInput()->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)

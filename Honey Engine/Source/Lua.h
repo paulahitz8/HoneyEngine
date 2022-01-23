@@ -46,6 +46,7 @@ private:
 	static float yTurretRot;
 	static float mouseRot;
 	bool bulletExists = false;
+	
 };
 
 class Lua
@@ -56,6 +57,7 @@ public:
 
 	bool CheckLua(lua_State* L, int r);
 	LuaWork* luaWork = nullptr;
+	bool compileError = false;
 
 private:
 	lua_State* L;

@@ -24,6 +24,7 @@ public:
 	bool PostUpdate(float dt);
 	bool CleanUp();
 
+	bool message = false;
 	//bool bulletRot = false;
 
 private:
@@ -34,7 +35,7 @@ private:
 	// Temporal to manage the use of the camera
 	GameObject* camera = nullptr;
 	Lua* lua = nullptr;
-
+	
 };
 
 #endif SCENE_INTRO_H // SCENE_INTRO_H
