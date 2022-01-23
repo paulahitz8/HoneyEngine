@@ -28,7 +28,7 @@ In order to activate the scripts follow these steps:
 - Click attach (with the game object selected), to attach the script
 - Click play and test it out!
 
-*We will include a video tutorial in the release for clarification*
+*We include a video [tutorial](https://github.com/paulahitz8/HoneyEngine/tree/main/Honey%20Engine/Honey/Assets/Tutorial) for clarification*
 
 ## Features
 
