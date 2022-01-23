@@ -35,10 +35,6 @@ public:
 	void CreateBullet();
 
 private:
-	static SceneManager* instance;
-	static std::string tankNameInLua;
-	static std::string bulletNameInLua;
-	static std::string turretNameInLua;
 	HoneyEngine* engine;
 	static float xPos;
 	static float zPos;
@@ -49,10 +45,7 @@ private:
 	static float yBulletRot;
 	static float yTurretRot;
 	static float mouseRot;
-	static bool isName;
-	bool isTest2 = false;
 	bool bulletExists = false;
-	//bool bulletRot = false;
 };
 
 class Lua
@@ -62,7 +55,6 @@ public:
 	~Lua();
 
 	bool CheckLua(lua_State* L, int r);
-
 	LuaWork* luaWork = nullptr;
 
 private:

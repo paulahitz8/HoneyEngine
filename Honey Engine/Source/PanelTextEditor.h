@@ -21,7 +21,5 @@ public:
 private:
 
 	std::string savedText;
-	const char* savedTextChar;
-	char* savedNoConstTextChar;
 	Editor* editor = nullptr;
 };

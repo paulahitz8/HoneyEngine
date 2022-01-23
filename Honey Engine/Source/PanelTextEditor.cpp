@@ -28,7 +28,6 @@ bool PanelTextEditor::Awake()
 
 bool PanelTextEditor::PreUpdate()
 {
-
 	return true;
 }
 

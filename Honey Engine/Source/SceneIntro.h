@@ -9,8 +9,6 @@
 #define MAX_SNAKE 2
 
 class GameObject;
-struct PhysBody3D;
-struct PhysMotor3D;
 class Lua;
 class LuaWork;
 
@@ -25,8 +23,6 @@ public:
 	bool Update(float dt);
 	bool PostUpdate(float dt);
 	bool CleanUp();
-
-	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 	//bool bulletRot = false;
 

@@ -27,7 +27,6 @@ bool ComponentScript::Start()
 
 bool ComponentScript::Update()
 {
-	//name = owner->GetEngine()->GetEditor()->GetPanelAssets()->scriptName;
 	return true;
 }
 
@@ -35,9 +34,25 @@ bool ComponentScript::InspectorDraw(PanelChooser* chooser)
 {
 	bool ret = true;
 
+	// Inspector variables
 	if (ImGui::CollapsingHeader(name.c_str()))
 	{
-		// inspector variables
+		if (name == "TankMovement.lua")
+		{
+			ImGui::Text("name = Tank");
+			ImGui::Text("position = { x, y, z }");
+			ImGui::Text("speed = 2");
+		}
+		else if (name == "TurretMovement.lua")
+		{
+			ImGui::Text("name = Turret");
+		}
+		else if (name == "BulletMovement.lua")
+		{
+			ImGui::Text("name = Bullet");
+			ImGui::Text("position = { x, y, z }");
+			ImGui::Text("speed = 2");
+		}
 	}
 
 	return ret;

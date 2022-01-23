@@ -126,6 +126,10 @@
                     },
                     {
                         "component_type": "info"
+                    },
+                    {
+                        "component_type": "script",
+                        "name": "TankMovement.lua"
                     }
                 ],
                 "id": 1,
@@ -198,6 +202,10 @@
                     {
                         "component_type": "material",
                         "path": "Assets/Textures/green.png"
+                    },
+                    {
+                        "component_type": "script",
+                        "name": "TurretMovement.lua"
                     }
                 ],
                 "id": 2,
@@ -218,7 +226,7 @@
                         ],
                         "rotation": [
                             -0.0,
-                            4.470351484542334e-07,
+                            4.243853766183747e-07,
                             -0.0
                         ],
                         "scale": [

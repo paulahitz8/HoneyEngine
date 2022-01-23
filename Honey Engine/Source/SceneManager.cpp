@@ -276,6 +276,7 @@ Json SceneManager::SaveComponentInfo(ComponentInfo* componentInfo)
 Json SceneManager::SaveComponentScript(ComponentScript* componentScript)
 {
 	Json jsonComponentScript;
+	jsonComponentScript["name"] = componentScript->name;
 	return jsonComponentScript;
 }
 
@@ -344,12 +345,14 @@ bool SceneManager::SaveScene(Scene* scene)
 				jsonComponent = SaveComponentInfo((ComponentInfo*)component);
 				jsonComponent["component_type"] = "info";
 				break;
-			case ComponentType::CAMERA:
-				jsonComponent = SaveComponentCamera((ComponentCamera*)component);
-				jsonComponent["component_type"] = "camera";
 			case ComponentType::SCRIPT:
 				jsonComponent = SaveComponentScript((ComponentScript*)component);
 				jsonComponent["component_type"] = "script";
+				break;
+			case ComponentType::CAMERA:
+				jsonComponent = SaveComponentCamera((ComponentCamera*)component);
+				jsonComponent["component_type"] = "camera";
+				break;
 			default:
 				break;
 			}
@@ -472,6 +475,11 @@ void SceneManager::LoadComponentInfo(ComponentInfo* componentInfo, Json jsonComp
 {
 }
 
+void SceneManager::LoadComponentScript(ComponentScript* componentScript, Json jsonComponentScript)
+{
+	componentScript->name = jsonComponentScript.at("name");
+}
+
 void SceneManager::LoadComponentCamera(ComponentCamera* componentCamera, Json jsonComponentCamera)
 {
 	componentCamera->verticalFOV = jsonComponentCamera.at("vertical_fov");
@@ -540,6 +548,8 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 						component = gameObject->GetComponent<ComponentMesh>();
 					else if (componentString == "info")
 						component = gameObject->GetComponent<ComponentInfo>();
+					else if (componentString == "script")
+						component = gameObject->GetComponent<ComponentScript>();
 					else if (componentString == "camera")
 						component = gameObject->GetComponent<ComponentCamera>();
 
@@ -557,6 +567,9 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 						case ComponentType::INFO:
 							LoadComponentInfo((ComponentInfo*)component, jsonComponent);
 							break;
+						case ComponentType::SCRIPT:
+							LoadComponentScript((ComponentScript*)component, jsonComponent);
+							break;
 						case ComponentType::CAMERA:
 							LoadComponentCamera((ComponentCamera*)component, jsonComponent);
 							break;
@@ -573,8 +586,11 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 							component = gameObject->CreateComponent<ComponentMesh>();
 						else if (componentString == "info")
 							component = gameObject->GetComponent<ComponentInfo>();
+						else if (componentString == "script")
+							component = gameObject->CreateComponent<ComponentScript>();
 						else if (componentString == "camera")
 							component = gameObject->CreateComponent<ComponentCamera>();
+						
 
 						if (component != nullptr)
 						{
@@ -588,6 +604,9 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 								break;
 							case ComponentType::INFO:
 								LoadComponentInfo((ComponentInfo*)component, jsonComponent);
+								break;
+							case ComponentType::SCRIPT:
+								LoadComponentScript((ComponentScript*)component, jsonComponent);
 								break;
 							case ComponentType::CAMERA:
 								LoadComponentCamera((ComponentCamera*)component, jsonComponent);
@@ -623,6 +642,8 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 						component = gameObject->CreateComponent<ComponentMesh>();
 					else if (componentString == "info")
 						component = gameObject->GetComponent<ComponentInfo>();
+					else if (componentString == "script")
+						component = gameObject->GetComponent<ComponentScript>();
 					else if (componentString == "camera")
 						component = gameObject->CreateComponent<ComponentCamera>();
 
@@ -638,6 +659,9 @@ bool SceneManager::LoadScene(Scene* scene, const char* sceneName)
 							break;
 						case ComponentType::INFO:
 							LoadComponentInfo(gameObject->GetComponent<ComponentInfo>(), jsonComponent);
+							break;
+						case ComponentType::SCRIPT:
+							LoadComponentScript(gameObject->GetComponent<ComponentScript>(), jsonComponent);
 							break;
 						case ComponentType::CAMERA:
 							LoadComponentCamera((ComponentCamera*)component, jsonComponent);

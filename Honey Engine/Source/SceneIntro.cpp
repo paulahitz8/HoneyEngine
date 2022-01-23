@@ -15,6 +15,7 @@
 #include "ComponentMesh.h"
 #include "ComponentMaterial.h"
 #include "ComponentCamera.h"
+#include "ComponentTransform.h"
 #include "GameObject.h"
 #include "Lua.h"
 #include "Input.h"
@@ -46,17 +47,6 @@ bool SceneIntro::Start()
 	appLog->AddLog("Loading Intro assets\n");
 	bool ret = true;
 
-
-	// Load initial scene (temporal)
-	//engine->GetFileSystem()->GameObjectFromMesh("Assets/Models/baker_house.fbx", this->gameObjectList,"Assets/Textures/baker_house.png");
-
-	// REMOVE THE FOLLOWING 2 LINES WHEN WE HAVE THE CUSTOM FILE FORMAT FINISHED.
-	//Importer::GetInstance()->ImportModel("Assets/Models/baker_house.fbx");
-	/*Importer::GetInstance()->ImportModel("Assets/Models/camera.fbx");
-	GameObject* camera = engine->GetSceneManager()->GetCurrentScene()->GetGameObject(2);
-	ComponentCamera* componentCamera = camera->CreateComponent<ComponentCamera>();
-	camera->AddComponent(componentCamera);*/
-
 	// Load scene with a camera and several houses.
 	engine->GetSceneManager()->LoadScene(this, "SceneIntro");
 
@@ -79,18 +69,33 @@ bool SceneIntro::Update(float dt)
 	if (engine->GetSceneManager()->runtimeState == RuntimeState::PLAYING)
 	{
 		lua = new Lua(engine);
-		/*if (lua->luaWork->isName)
-		{*/
-			lua->luaWork->GetPosCScript();
-			lua->luaWork->isName = false;
-		//}
-		//lua = new Lua(engine);
+		
+		lua->luaWork->GetPosCScript();
+
 		if (engine->GetInput()->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		{
 			//bulletRot = true;
 			lua->luaWork->CreateBullet();
+			
 		}
-		
+
+		std::vector<GameObject*>::iterator item = gameObjectList.begin();
+		while (item != gameObjectList.end())
+		{
+			if ((*item)->name.compare("Bullet") == 0 && (*item) != nullptr)
+			{
+				if ((*item)->GetTransform() != nullptr)
+				{
+					if ((*item)->GetTransform()->GetPosition().y < -100)
+					{
+						DeleteGameObject(*item);
+						lua->luaWork->bulletExists = false;
+					}
+				}
+				break;
+			}
+			item++;
+		}
 	}
 
 	for (GameObject* go : this->gameObjectList)
@@ -127,9 +132,4 @@ bool SceneIntro::CleanUp()
 	RELEASE(lua);
 
 	return true;
-}
-
-void SceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
-{
-	
 }

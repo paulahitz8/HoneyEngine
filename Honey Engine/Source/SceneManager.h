@@ -78,6 +78,7 @@ public:
 	void LoadComponentTransform(ComponentTransform* componentTransform, Json jsonComponentTransform);
 	void LoadComponentMesh(ComponentMesh* componentMesh, Json jsonComponentMesh);
 	void LoadComponentInfo(ComponentInfo* componentInfo, Json jsonComponentInfo);
+	void LoadComponentScript(ComponentScript* componentScript, Json jsonComponentScript);
 	void LoadComponentCamera(ComponentCamera* componentCamera, Json jsonComponentCamera);
 
 public:
