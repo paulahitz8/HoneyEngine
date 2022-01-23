@@ -51,9 +51,7 @@ bool PanelHierarchy::Update()
 	{
 		editor->Markdown("# Game Objects");
 		ImGui::SameLine();
-		HelpMarker(
-			"This is a more typical looking tree with selectable nodes.\n"
-			"Click to select, CTRL+Click to toggle, click on arrows or double-click to open.");
+		HelpMarker("Click to select, CTRL+Click to toggle, click on arrows or double-click to open.");
 		static bool alignLabelWithCurrentXPosition = false;
 
 		if (alignLabelWithCurrentXPosition)

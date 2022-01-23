@@ -2,7 +2,7 @@ name = "Tank"
 position = {x, y, z}
 speed = 2
 
-function TankMovement(posX, posZ, key, rotY)23
+function TankMovement(posX, posZ, key, rotY)
 
 	position.x = posX
 	position.z = posZ
