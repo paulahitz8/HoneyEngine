@@ -51,8 +51,7 @@ void LuaWork::CreateBullet()
 			{
 				if ((*item)->GetTransform() != nullptr)
 				{
-					//yRot = (*item)->GetTransform()->GetRotation().y;
-					bullet->GetTransform()->SetPosition({ (*item)->GetTransform()->GetPosition().x,  (*item)->GetTransform()->GetPosition().y + 20, (*item)->GetTransform()->GetPosition().z });
+					bullet->GetTransform()->SetPosition({ (*item)->GetTransform()->GetPosition().x,  (*item)->GetTransform()->GetPosition().y + 25, (*item)->GetTransform()->GetPosition().z });
 				}
 			}
 			item++;
@@ -62,8 +61,6 @@ void LuaWork::CreateBullet()
 
 		engine->GetSceneManager()->GetCurrentScene()->bulletRot = true;
 		bulletExists = true;
-		
-		//bullet->GetComponent<ComponentMaterial>()->LoadTexture("Assets/Textures/silver.png");
 	}
 }
 
@@ -104,7 +101,7 @@ int LuaWork::GetPosCScript()
 				{
 					if ((*item)->GetTransform() != nullptr)
 					{
-						yTurretRot = (*item)->GetTransform()->GetRotation().y;
+						yTurretRot = (*item)->GetTransform()->GetRotation().y + 3.14159;
 					}
 				}
 			}

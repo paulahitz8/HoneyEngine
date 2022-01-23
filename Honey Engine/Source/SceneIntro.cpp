@@ -77,14 +77,16 @@ bool SceneIntro::Update(float dt)
 			appLog->AddLog("Compilation succesful.\n");
 		}
 
-		lua->luaWork->GetPosCScript();
-
 		if (engine->GetInput()->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		{
 			//bulletRot = true;
 			lua->luaWork->CreateBullet();
 			
 		}
+
+		lua->luaWork->GetPosCScript();
+
+		
 
 		std::vector<GameObject*>::iterator item = gameObjectList.begin();
 		while (item != gameObjectList.end())
@@ -93,7 +95,7 @@ bool SceneIntro::Update(float dt)
 			{
 				if ((*item)->GetTransform() != nullptr)
 				{
-					if ((*item)->GetTransform()->GetPosition().y < -100)
+					if ((*item)->GetTransform()->GetPosition().y < -10)
 					{
 						DeleteGameObject(*item);
 						lua->luaWork->bulletExists = false;
