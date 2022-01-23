@@ -113,8 +113,8 @@ bool Camera3D::Update(float dt)
 	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos += right * speed;
 	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos -= right * speed;
 
-	if (engine->GetInput()->GetMouseZ() > 0) newPos += front * speed * 2;
-	if (engine->GetInput()->GetMouseZ() < 0) newPos -= front * speed * 2;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetMouseZ() > 0) newPos += front * speed * 2;
+	if (engine->GetInput()->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && engine->GetInput()->GetMouseZ() < 0) newPos -= front * speed * 2;
 
 	position += newPos; // MODULE CAMERA REVISION CHECKPOINT --> CHECK AND FIX ERRORS FIRST!
 
